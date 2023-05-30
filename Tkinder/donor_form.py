@@ -2,16 +2,25 @@ import tkinter as tk
 from tkinter import ttk
 
 # Create a window
-window = tk.Tk()
-window.title("Donor Form")
+root = tk.Tk()
+print(root.winfo_reqwidth(), root.winfo_reqheight() )
+print(root.winfo_screenwidth(), root.winfo_screenheight() )
+
+# root.resizable(False, False)  # This code helps to disable windows from resizing
+
+root.geometry("618x450+500+150")
+root.title("Donor Form")
+
+width = 771
+height = 600
 
 # Create a frame to hold the widgets
-# frame = tk.Frame(window, bg='grey', width = 500, height=50,padx=20, pady=20)
-frame = tk.Frame(window,padx=20, pady=20)
+# frame = tk.Frame(root, bg='grey', width = 500, height=50,padx=20, pady=20)
+frame = tk.Frame(root,padx=20, pady=15,width=500,height=500)
 
 frame.grid()
 
-# Create labels and entries for each column in the table
+# Create labels and l̥entries for eal̥ch column in the table
 
 #row 1
 width_combobox = 17
@@ -33,7 +42,7 @@ First_name_entry.configure(validate="key", validatecommand=atmost_twenty_char_on
 
 
 Last_name = ttk.Label(frame, text="Last Name")
-Last_name.grid(row=0, column=2, sticky=tk.W)
+Last_name.grid(row=0, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
 Last_name_entry = ttk.Entry(frame)
 Last_name_entry.grid(row=0, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
@@ -56,7 +65,7 @@ adhaar_id_entry.configure(validate="key", validatecommand=atleast_twelve_digit_e
 
 
 gender = ttk.Label(frame,text="Gender")
-gender.grid(row=1, column=2, sticky=tk.W)
+gender.grid(row=1, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
 # Create a list of gender options
 gender_options = ["Male", "Female", "Nonbinary", "Other"]
@@ -82,7 +91,7 @@ Date_of_birth_entry.configure(validate="key", validatecommand=date_of_birth_vali
 
 
 Blood_type = ttk.Label(frame, text="Blood Type")
-Blood_type.grid(row=2, column=2, sticky=tk.W)
+Blood_type.grid(row=2, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
 Blood_type = ttk.Combobox(frame, width = width_combobox, textvariable = tk.StringVar(), values=["A+","A-","B+","B-","AB+","AB-","O+","O-"])
 Blood_type.grid(row=2, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
@@ -97,7 +106,7 @@ Pregnancy_status.grid(row=3, column=1, sticky=tk.W,padx= padding_xaxis,pady= pad
 
 
 HIV_status = ttk.Label(frame, text="HIV Status")
-HIV_status.grid(row=3, column=2, sticky=tk.W)
+HIV_status.grid(row=3, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
 HIV_status = ttk.Combobox(frame, width = width_combobox, textvariable = tk.StringVar(), values=["Positive","Negative"])
 HIV_status.grid(row=3, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
@@ -119,7 +128,7 @@ Street_name_entry.configure(validate="key", validatecommand=street_address_valid
 
 
 City = ttk.Label(frame, text="City")
-City.grid(row=4, column=2, sticky=tk.W)
+City.grid(row=4, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
 City_entry = ttk.Entry(frame)
 City_entry.grid(row=4, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
@@ -142,7 +151,7 @@ District_entry.grid(row=5, column=1, sticky=tk.W,padx= padding_xaxis,pady= paddi
 District_entry.configure(validate="key",validatecommand=atmost_thirty_char_ensure_validator)
 
 State = ttk.Label(frame, text="State")
-State.grid(row=5, column=2, sticky=tk.W)
+State.grid(row=5, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
 State_entry = ttk.Entry(frame)
 State_entry.grid(row=5, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
@@ -164,7 +173,7 @@ atmost_twenty_char_ensure_validator = (frame.register(atmost_twenty_char_ensure)
 Country_entry.configure(validate="key",validatecommand=atmost_twenty_char_ensure_validator)
 
 Country_code = ttk.Label(frame,text="Country Code (ex: +91)")
-Country_code.grid(row=6, column=2, sticky=tk.W)
+Country_code.grid(row=6, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
 Country_code_entry = ttk.Entry(frame)
 Country_code_entry.grid(row=6, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
@@ -209,7 +218,7 @@ Father_name_entry.configure(validate="key", validatecommand=atmost_thirty_char__
 
 
 Mother_name = ttk.Label(frame, text="Mother Name")
-Mother_name.grid(row=7, column=2, sticky=tk.W)
+Mother_name.grid(row=7, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
 Mother_name_entry = ttk.Entry(frame)
 Mother_name_entry.grid(row=7, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
@@ -219,7 +228,7 @@ Mother_name_entry.configure(validate="key", validatecommand=atmost_thirty_char_e
 
 #row 9
 Guardian_name = ttk.Label(frame, text="Guardian Name")
-Guardian_name.grid(row=8, column=0, sticky=tk.W)
+Guardian_name.grid(row=8, column=0, sticky=tk.W,padx=(padding_xaxis,0))
 
 Guardian_name_entry = ttk.Entry(frame)
 Guardian_name_entry.grid(row=8, column=1, sticky=tk.W ,padx= padding_xaxis,pady= padding_yaxis)
@@ -243,7 +252,7 @@ Phone_1_entry.configure(validate="key", validatecommand=atleast_ten_digit_ensure
 
 
 Phone_2 = ttk.Label(frame, text="Phone 2")
-Phone_2.grid(row=9, column=2, sticky=tk.W)
+Phone_2.grid(row=9, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
 Phone_2_entry = ttk.Entry(frame)
 Phone_2_entry.grid(row=9, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
@@ -280,7 +289,7 @@ New_Password_entry.configure(validate="key", validatecommand=atmost_thirtychar_e
 
 
 Password = ttk.Label(frame, text="Confirm Password")
-Password.grid(row=11, column=2, sticky=tk.W)
+Password.grid(row=11, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
 Password_entry = ttk.Entry(frame)
 Password_entry.grid(row=11, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
@@ -300,8 +309,9 @@ def form_validator():
 
 
 # Create a button to submit the form
-btn = ttk.Button(frame, text="Submit",command=form_validator)
-btn.grid(row=16, column=2, sticky=tk.W,pady= 30)
+btn = ttk.Button(text="Submit",command=form_validator)
+btn.grid(pady= (0,20),padx=(230,220))
+
 
 # Start the main loop
-window.mainloop()
+root.mainloop() 

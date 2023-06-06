@@ -1,0 +1,5 @@
+1. make front end get input from user properly with full validation ( static )
+2. make backend get data from test tuple
+3. make front end do full ( dynamic validation )
+4. make backend get data from front end and store in db
+5. Think about report table now

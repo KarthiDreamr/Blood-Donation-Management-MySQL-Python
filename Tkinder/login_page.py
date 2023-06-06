@@ -53,6 +53,7 @@ def logintodb(user, passw):
 root = tk.Tk()
 root.geometry("300x300")
 root.title("DBMS Login Page")
+root.iconbitmap("assets/blood-donation.ico")
 
 
 # Defining the first row

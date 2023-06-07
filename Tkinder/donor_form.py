@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from form_validation.donor_validation.runtime_validation import atmost_twenty_char_onlyalpha_ensure, atleast_twelve_digit_ensure, date_of_birth_ensure, atmost_fifty_char_ensure, atmost_thirty_char_ensure, atmost_twenty_char_ensure, atmost_plus_three_char_ensure, atmost_thirty_char_onlyalpha_ensure, atleast_ten_digit_ensure, isdigit_ensure, atmost_thirtychar_ensure
-from form_validation.donor_validation.complete_validation import *
+# from form_validation.donor_validation.complete_validation import *
 
 # Create a window
 root = tk.Tk()
@@ -272,12 +272,13 @@ Password_entry.configure(validate="key", validatecommand=atmost_thirtychar_ensur
 
 # Create a button to submit the form
 
-back_button = tk.Button(donor_frame, text="back", command=lambda: root.destroy()) 
-back_button.grid(row=12, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
+# back_button = tk.Button(donor_frame, text="back", command=lambda: root.destroy()) 
+# back_button.grid(row=12, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-submit_button = ttk.Button(donor_frame,text="Submit",command=form_validator)
-submit_button.grid(row=12, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
-# btn.grid(row=12, column=1, sticky=tk.W,pady= (0,20),padx=(230,220))
+# # submit_button = ttk.Button(donor_frame,text="Submit",command=form_validator)
+# submit_button = ttk.Button(donor_frame,text="Submit")
+# submit_button.grid(row=12, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
+# # btn.grid(row=12, column=1, sticky=tk.W,pady= (0,20),padx=(230,220))
 
 
 donor_frame.grid()

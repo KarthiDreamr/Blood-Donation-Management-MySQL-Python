@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-from form_validation.donor_validation.runtime_validation import *
+from form_validation.runtime_validation import *
 # from form_validation.donor_validation.complete_validation import *
 
 # Create a window
@@ -11,13 +11,13 @@ donor_root.iconbitmap("assets/blood-donation.ico")
 donor_root.title("Donor Form")
 
 # Center the window on the screen
-window_width = donor_root.winfo_width()
-window_height = donor_root.winfo_height()
-screen_width = donor_root.winfo_screenwidth()
-screen_height = donor_root.winfo_screenheight()
-x_coordinate = int((screen_width/2) - (window_width/2))
-y_coordinate = int((screen_height/2) - (window_height/2))
-donor_root.geometry("{}x{}+{}+{}".format(window_width, window_height, x_coordinate, y_coordinate))
+# window_width = donor_root.winfo_width()
+# window_height = donor_root.winfo_height()
+# screen_width = donor_root.winfo_screenwidth()
+# screen_height = donor_root.winfo_screenheight()
+# x_coordinate = int((screen_width/2) - (window_width/2))
+# y_coordinate = int((screen_height/2) - (window_height/2))
+# donor_root.geometry("{}x{}+{}+{}".format(window_width, window_height, x_coordinate, y_coordinate))
 
 donor_frame = tk.Frame(donor_root, padx=10, pady=10)
 donor_frame.grid()
@@ -186,7 +186,6 @@ Father_name_entry = ttk.Entry(donor_frame)
 Father_name_entry.grid(row=7, column=1, sticky=tk.W ,padx= padding_xaxis,pady= padding_yaxis)
 
 
-
 atmost_thirty_char__onlyalpha_ensure_validator = (donor_frame.register(atmost_thirty_char_onlyalpha_ensure), "%P")
 
 Father_name_entry.configure(validate="key", validatecommand=atmost_thirty_char__onlyalpha_ensure_validator)
@@ -253,7 +252,7 @@ New_Password_entry = ttk.Entry(donor_frame)
 New_Password_entry.grid(row=11, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
-atmost_thirtychar_ensure_validate = (donor_frame.register(atmost_thirtychar_ensure), "%P")
+atmost_thirtychar_ensure_validate = (donor_frame.register(atmost_thirty_char_ensure), "%P")
 
 New_Password_entry.configure(validate="key", validatecommand=atmost_thirtychar_ensure_validate)
 

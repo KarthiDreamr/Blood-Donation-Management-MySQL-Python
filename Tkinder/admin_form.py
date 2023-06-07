@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-from form_validation.admin_validation.runtime_validation import *
+from form_validation.runtime_validation import *
 from form_validation.admin_validation.complete_validation import *
 
 # Create a window

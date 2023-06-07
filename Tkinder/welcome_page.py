@@ -40,7 +40,7 @@ def enter_hospital():
 def enter_admin():
     
     # root.destroy()
-    import admin_login
+    import admin_form
 
 # Create the buttons within the frame
 donor = tk.Button(button_frame, text="DONOR", command=enter_donor, bg="red", width=10, height=2)

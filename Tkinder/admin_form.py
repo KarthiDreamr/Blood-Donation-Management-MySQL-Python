@@ -1,17 +1,20 @@
 import tkinter as tk
 from tkinter import ttk
 
-# Create a window
-root = tk.Tk()
-root.iconbitmap("assets/blood-donation.ico")
+from form_validation.admin_validation.runtime_validation import *
+from form_validation.admin_validation.complete_validation import *
 
-root.title("Admin Form")
+# Create a window
+admin_root = tk.Tk()
+admin_root.iconbitmap("assets/blood-donation.ico")
+
+admin_root.title("Admin Form")
 
 padding_xaxis = 10
 padding_yaxis = 5
 
 # Create a frame to hold the widgets
-admin_frame = ttk.Frame(root, padding=10)
+admin_frame = ttk.Frame(admin_root, padding=10)
 admin_frame.grid()
 
 # Create labels and entries for each column in the table
@@ -27,9 +30,6 @@ Admin_name_entry = ttk.Entry(admin_frame)
 Admin_name_entry.grid(row=0, column=1, padx=padding_xaxis, pady=padding_yaxis)
 
 #row 2
-
-def atmost_fifty_char_onlyalpha_ensure(input):
-    return len(input) <= 50 or input == "" and input.isalpha()
 
 atmost_fifty_char_onlyalpha_ensure_validator = (admin_frame.register(atmost_fifty_char_onlyalpha_ensure), "%P")
 
@@ -52,14 +52,12 @@ password_entry.grid(row=3, column=1, padx=padding_xaxis, pady=padding_yaxis)
 
 #row 4
 
-back_button = tk.Button(admin_frame, text="back", command=lambda: root.destroy()) 
+back_button = tk.Button(admin_frame, text="back", command=lambda: admin_root.destroy()) 
 back_button.grid(row=4, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-submit_button = ttk.Button(admin_frame,text="Submit",command=lambda: root.destroy())
+submit_button = ttk.Button(admin_frame,text="Submit",command=lambda: admin_root.destroy())
 submit_button.grid(row=4, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def atleast_eight_atmost_thirtychar_ensure(input):
-    return len(input) <= 30 and len(input) >= 8 or input == ""
 
 atleast_eight_atmost_thirtychar_ensure_validate = (admin_frame.register(atleast_eight_atmost_thirtychar_ensure), "%P")
 
@@ -70,4 +68,4 @@ password_entry.configure(validate="key", validatecommand=atleast_eight_atmost_th
 # btn.grid(row=4)
 
 # Start the main loop
-root.mainloop()
+admin_root.mainloop()

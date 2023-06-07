@@ -30,13 +30,17 @@ button_frame = tk.Frame(canvas)
 button_frame.place(relx=0.5, rely=0.6, anchor="center")
 
 def enter_donor():
-    pass
+    # root.destroy()
+    import donor_form
 
 def enter_hospital():
-    pass
+    # root.destroy()
+    import hospital_form
 
 def enter_admin():
-    pass
+    
+    # root.destroy()
+    import admin_login
 
 # Create the buttons within the frame
 donor = tk.Button(button_frame, text="DONOR", command=enter_donor, bg="red", width=10, height=2)

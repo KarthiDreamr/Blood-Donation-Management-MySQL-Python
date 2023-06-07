@@ -1,29 +1,26 @@
 import tkinter as tk
 from tkinter import ttk
 
-from form_validation.donor_validation.runtime_validation import atmost_twenty_char_onlyalpha_ensure, atleast_twelve_digit_ensure, date_of_birth_ensure, atmost_fifty_char_ensure, atmost_thirty_char_ensure, atmost_twenty_char_ensure, atmost_plus_three_char_ensure, atmost_thirty_char_onlyalpha_ensure, atleast_ten_digit_ensure, isdigit_ensure, atmost_thirtychar_ensure
+from form_validation.donor_validation.runtime_validation import *
 # from form_validation.donor_validation.complete_validation import *
 
 # Create a window
-root = tk.Tk()
-root.iconbitmap("assets/blood-donation.ico")
+donor_root = tk.Tk()
+donor_root.iconbitmap("assets/blood-donation.ico")
 
-print(root.winfo_reqwidth(), root.winfo_reqheight() )
-print(root.winfo_screenwidth(), root.winfo_screenheight() )
+donor_root.title("Donor Form")
 
-# root.resizable(False, False)  # This code helps to disable windows from resizing
+# Center the window on the screen
+window_width = donor_root.winfo_width()
+window_height = donor_root.winfo_height()
+screen_width = donor_root.winfo_screenwidth()
+screen_height = donor_root.winfo_screenheight()
+x_coordinate = int((screen_width/2) - (window_width/2))
+y_coordinate = int((screen_height/2) - (window_height/2))
+donor_root.geometry("{}x{}+{}+{}".format(window_width, window_height, x_coordinate, y_coordinate))
 
-root.geometry("618x450+500+150")
-root.title("Donor Form")
-
-width = 771
-height = 600
-
-# Create a frame to hold the widgets
-# frame = tk.Frame(root, bg='grey', width = 500, height=50,padx=20, pady=20)
-donor_frame = tk.Frame(root,padx=20, pady=15,width=500,height=500)
-
-# Create labels and l̥entries for eal̥ch column in the table
+donor_frame = tk.Frame(donor_root, padx=10, pady=10)
+donor_frame.grid()
 
 #row 1
 width_combobox = 17
@@ -272,16 +269,24 @@ Password_entry.configure(validate="key", validatecommand=atmost_thirtychar_ensur
 
 # Create a button to submit the form
 
-# back_button = tk.Button(donor_frame, text="back", command=lambda: root.destroy()) 
-# back_button.grid(row=12, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
+back_button = tk.Button(donor_frame, text="back", command=lambda: donor_root.destroy()) 
+back_button.grid(row=12, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-# # submit_button = ttk.Button(donor_frame,text="Submit",command=form_validator)
-# submit_button = ttk.Button(donor_frame,text="Submit")
-# submit_button.grid(row=12, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
-# # btn.grid(row=12, column=1, sticky=tk.W,pady= (0,20),padx=(230,220))
-
-
-donor_frame.grid()
+submit_button = ttk.Button(donor_frame,text="Submit")
+# submit_button = ttk.Button(donor_frame,text="Submit",command=lambda: form_validator(atmost_twenty_char_onlyalpha_ensure.get(),
+#                                                                                     atleast_twelve_digit_ensure.get(),
+#                                                                                     date_of_birth_ensure.get(),
+#                                                                                     atmost_fifty_char_ensure.get(),
+#                                                                                     atmost_thirty_char_ensure.get(),
+#                                                                                     atmost_twenty_char_ensure.get(),
+#                                                                                     atmost_plus_three_char_ensure.get(),
+#                                                                                     atmost_thirty_char_onlyalpha_ensure.get(),
+#                                                                                     atleast_ten_digit_ensure.get(),
+#                                                                                     isdigit_ensure.get(),
+#                                                                                     atmost_thirtychar_ensure.get()))
+submit_button.grid(row=12, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 # Start the main loop
-root.mainloop() 
+donor_root.mainloop() 
+
+donor_frame.mainloop()

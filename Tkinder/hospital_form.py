@@ -1,16 +1,17 @@
 import tkinter as tk
 from tkinter import ttk
 
-import runtime_validation
+from form_validation.hospital_validation.runtime_validation import *
+from form_validation.hospital_validation.complete_validation import *
 
 # Create a window
-root = tk.Tk()
-root.iconbitmap("assets/blood-donation.ico")
+hospital_root = tk.Tk()
+hospital_root.iconbitmap("assets/blood-donation.ico")
 
-root.title("Hospital Form")
+hospital_root.title("Hospital Form")
 
 # Create a frame to hold the widgets
-hospital_frame = ttk.Frame(root, padding=10)
+hospital_frame = ttk.Frame(hospital_root, padding=10)
 hospital_frame.grid()
 
 padding_xaxis = 10
@@ -24,7 +25,7 @@ hospital_id_entry = ttk.Entry(hospital_frame)
 hospital_id_entry.grid(row=0, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
-isdigit_ensure_validate = (hospital_frame.register(runtime_validation.isdigit_ensure), "%P")
+isdigit_ensure_validate = (hospital_frame.register(isdigit_ensure), "%P")
 
 hospital_id_entry.configure(validate="key", validatecommand=isdigit_ensure_validate)
 
@@ -36,7 +37,7 @@ hospital_name_entry.grid(row=0, column=3, sticky=tk.W,padx= padding_xaxis,pady= 
 
 
 
-atmost_thirty_char_onlyalpha_ensure_validator = (hospital_frame.register(runtime_validation.atmost_thirty_char_onlyalpha_ensure), "%P")
+atmost_thirty_char_onlyalpha_ensure_validator = (hospital_frame.register(atmost_thirty_char_onlyalpha_ensure), "%P")
 
 hospital_name_entry.configure(validate="key", validatecommand=atmost_thirty_char_onlyalpha_ensure_validator)
 
@@ -49,7 +50,7 @@ password_entry.grid(row=1, column=1, sticky=tk.W,padx= padding_xaxis,pady= paddi
 
 
 
-atmost_thirty_char_ensure_validate = (hospital_frame.register(runtime_validation.atmost_thirty_char_ensure), "%P")
+atmost_thirty_char_ensure_validate = (hospital_frame.register(atmost_thirty_char_ensure), "%P")
 
 
 total_capacity = ttk.Label(hospital_frame, text="Total Capacity")
@@ -59,7 +60,7 @@ total_capacity_entry = ttk.Entry(hospital_frame)
 total_capacity_entry.grid(row=1, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
-isdigit_atmost_fourhundred_ensure_validate = (hospital_frame.register(runtime_validation.isdigit_atmost_fourhundred_ensure), "%P")
+isdigit_atmost_fourhundred_ensure_validate = (hospital_frame.register(isdigit_atmost_fourhundred_ensure), "%P")
 
 total_capacity_entry.configure(validate="key", validatecommand=isdigit_atmost_fourhundred_ensure_validate)
 
@@ -80,7 +81,7 @@ contact_number_entry = ttk.Entry(hospital_frame)
 contact_number_entry.grid(row=2, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
-atleast_ten_digit_ensure_validate = (hospital_frame.register(runtime_validation.atleast_ten_digit_ensure), "%P")
+atleast_ten_digit_ensure_validate = (hospital_frame.register(atleast_ten_digit_ensure), "%P")
 
 contact_number_entry.configure(validate="key", validatecommand=atleast_ten_digit_ensure_validate)
 
@@ -129,7 +130,7 @@ country_entry = ttk.Entry(hospital_frame)
 country_entry.grid(row=5, column=1, sticky=tk.W, padx= padding_xaxis,pady= padding_yaxis)
 
 
-atmost_twenty_char_onlyalpha_ensure_validator = (hospital_frame.register(runtime_validation.atmost_twenty_char_onlyalpha_ensure), "%P")
+atmost_twenty_char_onlyalpha_ensure_validator = (hospital_frame.register(atmost_twenty_char_onlyalpha_ensure), "%P")
 country_entry.configure(validate="key", validatecommand=atmost_twenty_char_onlyalpha_ensure_validator)
 
 #row7
@@ -141,7 +142,7 @@ o_positive_available_entry.grid(row=6, column=1, sticky=tk.W , padx= padding_xax
 
 
 
-isdigit_atmost_fifty_ensure_validate = (hospital_frame.register(runtime_validation.isdigit_atmost_fifty_ensure), "%P")
+isdigit_atmost_fifty_ensure_validate = (hospital_frame.register(isdigit_atmost_fifty_ensure), "%P")
 
 o_positive_available_entry.configure(validate="key", validatecommand=isdigit_atmost_fifty_ensure_validate)
 
@@ -274,7 +275,7 @@ ab_negative_maximum_entry.configure(validate="key", validatecommand=isdigit_atmo
 
 #row 15
 
-back_button = tk.Button(hospital_frame, text="back", command=lambda: root.destroy()) 
+back_button = tk.Button(hospital_frame, text="back", command=lambda: hospital_root.destroy()) 
 back_button.grid(row=14, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 #validator function
@@ -282,13 +283,40 @@ back_button.grid(row=14, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding
 
 #hospital_id_entry,hospital_name_entry,password_entry,total_capacity_entry,quantity_required_entry,contact_number_entry,street_name_entry,city_entry,state_entry,district_entry,country_entry,o_positive_available_entry,o_negative_available_entry,a_positive_available_entry,a_negative_available_entry,b_positive_available_entry,b_negative_available_entry,ab_positive_available_entry,ab_negative_available_entry,o_positive_maximum_entry,o_negative_maximum_entry,a_positive_maximum_entry,a_negative_maximum_entry,b_positive_maximum_entry,b_negative_maximum_entry,ab_positive_maximum_entry,ab_negative_maximum_entry
     
-# submit_button = ttk.Button(hospital_frame,text="Submit",command=lambda: form_validator(hospital_id_entry.get(),hospital_name_entry.get(),password_entry.get(),total_capacity_entry.get(),quantity_required_entry.get(),contact_number_entry.get(),street_name_entry.get(),city_entry.get(),state_entry.get(),district_entry.get(),country_entry.get(),o_positive_available_entry.get(),o_negative_available_entry.get(),a_positive_available_entry.get(),a_negative_available_entry.get(),b_positive_available_entry.get(),b_negative_available_entry.get(),ab_positive_available_entry.get(),ab_negative_available_entry.get(),o_positive_maximum_entry.get(),o_negative_maximum_entry.get(),a_positive_maximum_entry.get(),a_negative_maximum_entry.get(),b_positive_maximum_entry.get(),b_negative_maximum_entry.get(),ab_positive_maximum_entry.get(),ab_negative_maximum_entry.get()))
+submit_button = ttk.Button(hospital_frame,text="Submit",command=lambda: form_validator(hospital_id_entry.get(),
+                                                                                       hospital_name_entry.get(),
+                                                                                       password_entry.get(),
+                                                                                       total_capacity_entry.get(),
+                                                                                       quantity_required_entry.get(),
+                                                                                       contact_number_entry.get(),
+                                                                                       street_name_entry.get(),
+                                                                                       city_entry.get()
+                                                                                       ,state_entry.get(),
+                                                                                       district_entry.get(),
+                                                                                       country_entry.get(),
+                                                                                       o_positive_available_entry.get(),
+                                                                                       o_negative_available_entry.get(),
+                                                                                       a_positive_available_entry.get(),
+                                                                                       a_negative_available_entry.get(),
+                                                                                       b_positive_available_entry.get(),
+                                                                                       b_negative_available_entry.get(),
+                                                                                       ab_positive_available_entry.get(),
+                                                                                       ab_negative_available_entry.get(),
+                                                                                       o_positive_maximum_entry.get(),
+                                                                                       o_negative_maximum_entry.get(),
+                                                                                       a_positive_maximum_entry.get(),
+                                                                                       a_negative_maximum_entry.get(),
+                                                                                       b_positive_maximum_entry.get(),
+                                                                                       b_negative_maximum_entry.get(),
+                                                                                       ab_positive_maximum_entry.get(),
+                                                                                       ab_negative_maximum_entry.get()))
 
-# submit_button.grid(row=14, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
+submit_button.grid(row=14, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-hospital_frame.mainloop()
 
 # Start the main loop
-root.mainloop()
+hospital_root.mainloop()
+
+hospital_frame.mainloop()
 
 

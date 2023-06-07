@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 
+from form_validation.donor_validation.runtime_validation import atmost_twenty_char_onlyalpha_ensure, atleast_twelve_digit_ensure, date_of_birth_ensure, atmost_fifty_char_ensure, atmost_thirty_char_ensure, atmost_twenty_char_ensure, atmost_plus_three_char_ensure, atmost_thirty_char_onlyalpha_ensure, atleast_ten_digit_ensure, isdigit_ensure, atmost_thirtychar_ensure
+from form_validation.donor_validation.complete_validation import *
+
 # Create a window
 root = tk.Tk()
 root.iconbitmap("assets/blood-donation.ico")
@@ -33,8 +36,7 @@ first_name.grid(row=0, column=0, sticky=tk.W)
 first_name_entry = ttk.Entry(donor_frame)
 first_name_entry.grid(row=0, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def atmost_twenty_char_onlyalpha_ensure(input):
-    return input.isalpha() and len(input) <= 20 or input == ""
+
 
 atmost_twenty_char_onlyalpha_validator = (donor_frame.register(atmost_twenty_char_onlyalpha_ensure), "%P")
 
@@ -56,8 +58,7 @@ adhaar_id.grid(row=1, column=0, sticky=tk.W)
 adhaar_id_entry = ttk.Entry(donor_frame)
 adhaar_id_entry.grid(row=1, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def atleast_twelve_digit_ensure(input):
-    return input.isdigit() and len(input) <= 12 or input == ""
+
 
 atleast_twelve_digit_ensure_validate = (donor_frame.register(atleast_twelve_digit_ensure), "%P")
 
@@ -82,8 +83,7 @@ Date_of_birth.grid(row=2, column=0, sticky=tk.W)
 Date_of_birth_entry = ttk.Entry(donor_frame)
 Date_of_birth_entry.grid(row=2, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def date_of_birth_ensure(input):
-    return len(input) <= 10 or input == ""
+
 
 date_of_birth_validate = (donor_frame.register(date_of_birth_ensure), "%P")
 
@@ -119,8 +119,7 @@ Street_name.grid(row=4, column=0, sticky=tk.W)
 Street_name_entry = ttk.Entry(donor_frame)
 Street_name_entry.grid(row=4, column=1, sticky=tk.W ,padx= padding_xaxis,pady= padding_yaxis)
 
-def atmost_fifty_char_ensure(input):
-    return input.isalpha() and len(input) <= 20 or input == ""
+
 
 street_address_validator = (donor_frame.register(atmost_fifty_char_ensure), "%P")
 
@@ -133,8 +132,7 @@ City.grid(row=4, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 City_entry = ttk.Entry(donor_frame)
 City_entry.grid(row=4, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def atmost_thirty_char_ensure(input):
-    return len(input) <= 30 or input == ""
+
 
 atmost_thirty_char_ensure_validator = (donor_frame.register(atmost_thirty_char_ensure), "%P")
 
@@ -165,8 +163,6 @@ Country.grid(row=6, column=0, sticky=tk.W)
 Country_entry = ttk.Entry(donor_frame)
 Country_entry.grid(row=6, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def atmost_twenty_char_ensure(input):
-    return len(input) <= 20 or input == ""
 
 atmost_twenty_char_ensure_validator = (donor_frame.register(atmost_twenty_char_ensure), "%P")
 
@@ -178,24 +174,7 @@ Country_code.grid(row=6, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 Country_code_entry = ttk.Entry(donor_frame)
 Country_code_entry.grid(row=6, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def atmost_plus_three_char_ensure(input):
-    if(input!=""):
-        if(len(input)<=3):
-            if(len(input)==1 and input[0]=='+'):
-                return True
 
-            elif(len(input)==2 and input[0]=='+' and input[1].isdigit()):
-                return True
-        
-            elif(len(input)==3 and input[0]=='+' and input[1].isdigit() and input[2].isdigit() ):
-                return True
-        
-            return False
-        
-        
-        return False
-    
-    return True
 
 atmost_plus_three_char_ensure_validator = (donor_frame.register(atmost_plus_three_char_ensure), "%P")
 
@@ -209,8 +188,7 @@ Father_name.grid(row=7, column=0, sticky=tk.W)
 Father_name_entry = ttk.Entry(donor_frame)
 Father_name_entry.grid(row=7, column=1, sticky=tk.W ,padx= padding_xaxis,pady= padding_yaxis)
 
-def atmost_thirty_char_onlyalpha_ensure(input):
-    return len(input) <= 30 or input == "" and input.isalpha()
+
 
 atmost_thirty_char__onlyalpha_ensure_validator = (donor_frame.register(atmost_thirty_char_onlyalpha_ensure), "%P")
 
@@ -228,7 +206,7 @@ Mother_name_entry.configure(validate="key", validatecommand=atmost_thirty_char_e
 
 #row 9
 Guardian_name = ttk.Label(donor_frame, text="Guardian Name")
-Guardian_name.grid(row=8, column=0, sticky=tk.W,padx=(padding_xaxis,0))
+Guardian_name.grid(row=8, column=0, sticky=tk.W)
 
 Guardian_name_entry = ttk.Entry(donor_frame)
 Guardian_name_entry.grid(row=8, column=1, sticky=tk.W ,padx= padding_xaxis,pady= padding_yaxis)
@@ -243,8 +221,7 @@ Phone_1.grid(row=9, column=0, sticky=tk.W)
 Phone_1_entry = ttk.Entry(donor_frame)
 Phone_1_entry.grid(row=9, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def atleast_ten_digit_ensure(input):
-    return input.isdigit() and len(input) <= 10 or input == ""
+
 
 atleast_ten_digit_ensure_validate = (donor_frame.register(atleast_ten_digit_ensure), "%P")
 
@@ -266,8 +243,6 @@ Hospital_ID.grid(row=10, column=0, sticky=tk.W)
 Hospital_ID_entry = ttk.Entry(donor_frame)
 Hospital_ID_entry.grid(row=10, column=1, sticky=tk.W ,padx= padding_xaxis,pady= padding_yaxis)
 
-def isdigit_ensure(input):
-    return input.isdigit() or input == ""
 
 isdigit_ensure_validate = (donor_frame.register(isdigit_ensure), "%P")
 
@@ -280,8 +255,6 @@ New_Password.grid(row=11, column=0, sticky=tk.W)
 New_Password_entry = ttk.Entry(donor_frame)
 New_Password_entry.grid(row=11, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def atmost_thirtychar_ensure(input):
-    return len(input) <= 30 or input == ""
 
 atmost_thirtychar_ensure_validate = (donor_frame.register(atmost_thirtychar_ensure), "%P")
 
@@ -295,17 +268,6 @@ Password_entry = ttk.Entry(donor_frame)
 Password_entry.grid(row=11, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 Password_entry.configure(validate="key", validatecommand=atmost_thirtychar_ensure_validate)
-
-#validator function
-
-def form_validator():
-
-    popup = tk.Toplevel()
-    # popup.geometry("200x100")
-    popup.title("Error")
-
-    label = tk.Label(popup, text="hello")
-    label.pack(pady=10)
 
 
 # Create a button to submit the form
@@ -322,4 +284,3 @@ donor_frame.grid()
 
 # Start the main loop
 root.mainloop() 
-

@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 
+from form_validation.hospital_validation.runtime_validation import isdigit_ensure, atmost_thirty_char_onlyalpha_ensure,atmost_thirty_char_ensure, isdigit_atmost_fourhundred_ensure, atleast_ten_digit_ensure, atmost_twenty_char_onlyalpha_ensure, isdigit_atmost_fifty_ensure
+from form_validation.hospital_validation.complete_validation import form_validator
+
 # Create a window
 root = tk.Tk()
 root.iconbitmap("assets/blood-donation.ico")
@@ -21,8 +24,6 @@ hospital_id.grid(row=0, column=0, sticky=tk.W)
 hospital_id_entry = ttk.Entry(hospital_frame)
 hospital_id_entry.grid(row=0, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def isdigit_ensure(input):
-    return input.isdigit() or input == ""
 
 isdigit_ensure_validate = (hospital_frame.register(isdigit_ensure), "%P")
 
@@ -34,8 +35,7 @@ hospital_name.grid(row=0,column=2, sticky=tk.W)
 hospital_name_entry = ttk.Entry(hospital_frame)
 hospital_name_entry.grid(row=0, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def atmost_thirty_char_onlyalpha_ensure(input):
-    return len(input) <= 30 or input == "" and input.isalpha()
+
 
 atmost_thirty_char_onlyalpha_ensure_validator = (hospital_frame.register(atmost_thirty_char_onlyalpha_ensure), "%P")
 
@@ -48,8 +48,7 @@ password.grid(row=1, column=0, sticky=tk.W)
 password_entry = ttk.Entry(hospital_frame)
 password_entry.grid(row=1, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def atmost_thirty_char_ensure(input):
-    return len(input) <= 30 or input == ""
+
 
 atmost_thirty_char_ensure_validate = (hospital_frame.register(atmost_thirty_char_ensure), "%P")
 
@@ -60,8 +59,6 @@ total_capacity.grid(row=1, column=2, sticky=tk.W)
 total_capacity_entry = ttk.Entry(hospital_frame)
 total_capacity_entry.grid(row=1, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def isdigit_atmost_fourhundred_ensure(input):
-    return input.isdigit() and input<50 or input == ""
 
 isdigit_atmost_fourhundred_ensure_validate = (hospital_frame.register(isdigit_atmost_fourhundred_ensure), "%P")
 
@@ -83,8 +80,6 @@ contact_number.grid(row=2, column=2, sticky=tk.W)
 contact_number_entry = ttk.Entry(hospital_frame)
 contact_number_entry.grid(row=2, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-def atleast_ten_digit_ensure(input):
-    return input.isdigit() and len(input) <= 10 or input == ""
 
 atleast_ten_digit_ensure_validate = (hospital_frame.register(atleast_ten_digit_ensure), "%P")
 
@@ -102,6 +97,7 @@ street_name_entry.configure(validate="key", validatecommand=atmost_thirty_char_o
 
 city = ttk.Label(hospital_frame, text="City")
 city.grid(row=3, column=2, sticky=tk.W, )
+
 
 city_entry = ttk.Entry(hospital_frame)
 city_entry.grid(row=3, column=3, sticky=tk.W, padx= padding_xaxis,pady= padding_yaxis)
@@ -133,8 +129,6 @@ country.grid(row=5, column=0, sticky=tk.W)
 country_entry = ttk.Entry(hospital_frame)
 country_entry.grid(row=5, column=1, sticky=tk.W, padx= padding_xaxis,pady= padding_yaxis)
 
-def atmost_twenty_char_onlyalpha_ensure(input):
-    return len(input) <= 20 or input == "" and input.isalpha()
 
 atmost_twenty_char_onlyalpha_ensure_validator = (hospital_frame.register(atmost_twenty_char_onlyalpha_ensure), "%P")
 country_entry.configure(validate="key", validatecommand=atmost_twenty_char_onlyalpha_ensure_validator)
@@ -146,8 +140,7 @@ o_positive_available.grid(row=6, column=0, sticky=tk.W)
 o_positive_available_entry = ttk.Entry(hospital_frame)
 o_positive_available_entry.grid(row=6, column=1, sticky=tk.W , padx= padding_xaxis,pady= padding_yaxis)
 
-def isdigit_atmost_fifty_ensure(input):
-    return (input.isdigit() and int(input)<=50 ) or input == ""
+
 
 isdigit_atmost_fifty_ensure_validate = (hospital_frame.register(isdigit_atmost_fifty_ensure), "%P")
 
@@ -285,11 +278,13 @@ ab_negative_maximum_entry.configure(validate="key", validatecommand=isdigit_atmo
 back_button = tk.Button(hospital_frame, text="back", command=lambda: root.destroy()) 
 back_button.grid(row=14, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-submit_button = ttk.Button(hospital_frame,text="Submit",command=lambda: root.destroy())
-submit_button.grid(row=14, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
+#validator function
 
-# btn = ttk.Button(hospital_frame, text="Submit")
-# btn.grid(row=14, column=1)
+
+
+    
+submit_button = ttk.Button(hospital_frame,text="Submit",command=lambda: form_validator())
+submit_button.grid(row=14, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 hospital_frame.mainloop()
 

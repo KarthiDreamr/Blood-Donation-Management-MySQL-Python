@@ -13,3 +13,5 @@
 #     if not (atmost_thirty_char_onlyalpha_ensure(Father_name_entry.get()) and atmost_thirty_char_onlyalpha_ensure(Mother_name_entry.get()) and atmost_thirty_char_onlyalpha_ensure(Guardian_name_entry.get()) and atleast_ten_digit_ensure(Phone_1_entry.get()) and atleast_ten_digit_ensure(Phone_2_entry.get()) and isdigit_ensure(Hospital_ID_entry.get()) and atmost_thirtychar_ensure(New_Password_entry.get()) and atmost_thirtychar_ensure(Password_entry.get())):
 #         error_popup()
 #         return
+
+pass

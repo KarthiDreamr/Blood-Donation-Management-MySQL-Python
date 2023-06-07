@@ -1,8 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-from form_validation.hospital_validation.runtime_validation import isdigit_ensure,atmost_thirty_char_onlyalpha_ensure,atmost_thirty_char_ensure,isdigit_atmost_fourhundred_ensure,atleast_ten_digit_ensure,atmost_twenty_char_onlyalpha_ensure,isdigit_atmost_fifty_ensure
-# from form_validation.hospital_validation.complete_validation import form_validator
+import runtime_validation
 
 # Create a window
 root = tk.Tk()
@@ -25,7 +24,7 @@ hospital_id_entry = ttk.Entry(hospital_frame)
 hospital_id_entry.grid(row=0, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
-isdigit_ensure_validate = (hospital_frame.register(isdigit_ensure), "%P")
+isdigit_ensure_validate = (hospital_frame.register(runtime_validation.isdigit_ensure), "%P")
 
 hospital_id_entry.configure(validate="key", validatecommand=isdigit_ensure_validate)
 
@@ -37,7 +36,7 @@ hospital_name_entry.grid(row=0, column=3, sticky=tk.W,padx= padding_xaxis,pady= 
 
 
 
-atmost_thirty_char_onlyalpha_ensure_validator = (hospital_frame.register(atmost_thirty_char_onlyalpha_ensure), "%P")
+atmost_thirty_char_onlyalpha_ensure_validator = (hospital_frame.register(runtime_validation.atmost_thirty_char_onlyalpha_ensure), "%P")
 
 hospital_name_entry.configure(validate="key", validatecommand=atmost_thirty_char_onlyalpha_ensure_validator)
 
@@ -50,7 +49,7 @@ password_entry.grid(row=1, column=1, sticky=tk.W,padx= padding_xaxis,pady= paddi
 
 
 
-atmost_thirty_char_ensure_validate = (hospital_frame.register(atmost_thirty_char_ensure), "%P")
+atmost_thirty_char_ensure_validate = (hospital_frame.register(runtime_validation.atmost_thirty_char_ensure), "%P")
 
 
 total_capacity = ttk.Label(hospital_frame, text="Total Capacity")
@@ -60,7 +59,7 @@ total_capacity_entry = ttk.Entry(hospital_frame)
 total_capacity_entry.grid(row=1, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
-isdigit_atmost_fourhundred_ensure_validate = (hospital_frame.register(isdigit_atmost_fourhundred_ensure), "%P")
+isdigit_atmost_fourhundred_ensure_validate = (hospital_frame.register(runtime_validation.isdigit_atmost_fourhundred_ensure), "%P")
 
 total_capacity_entry.configure(validate="key", validatecommand=isdigit_atmost_fourhundred_ensure_validate)
 
@@ -81,7 +80,7 @@ contact_number_entry = ttk.Entry(hospital_frame)
 contact_number_entry.grid(row=2, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
-atleast_ten_digit_ensure_validate = (hospital_frame.register(atleast_ten_digit_ensure), "%P")
+atleast_ten_digit_ensure_validate = (hospital_frame.register(runtime_validation.atleast_ten_digit_ensure), "%P")
 
 contact_number_entry.configure(validate="key", validatecommand=atleast_ten_digit_ensure_validate)
 
@@ -130,7 +129,7 @@ country_entry = ttk.Entry(hospital_frame)
 country_entry.grid(row=5, column=1, sticky=tk.W, padx= padding_xaxis,pady= padding_yaxis)
 
 
-atmost_twenty_char_onlyalpha_ensure_validator = (hospital_frame.register(atmost_twenty_char_onlyalpha_ensure), "%P")
+atmost_twenty_char_onlyalpha_ensure_validator = (hospital_frame.register(runtime_validation.atmost_twenty_char_onlyalpha_ensure), "%P")
 country_entry.configure(validate="key", validatecommand=atmost_twenty_char_onlyalpha_ensure_validator)
 
 #row7
@@ -142,7 +141,7 @@ o_positive_available_entry.grid(row=6, column=1, sticky=tk.W , padx= padding_xax
 
 
 
-isdigit_atmost_fifty_ensure_validate = (hospital_frame.register(isdigit_atmost_fifty_ensure), "%P")
+isdigit_atmost_fifty_ensure_validate = (hospital_frame.register(runtime_validation.isdigit_atmost_fifty_ensure), "%P")
 
 o_positive_available_entry.configure(validate="key", validatecommand=isdigit_atmost_fifty_ensure_validate)
 

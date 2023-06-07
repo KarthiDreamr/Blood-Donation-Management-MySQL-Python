@@ -18,4 +18,3 @@ def atmost_twenty_char_onlyalpha_ensure(input):
 
 def isdigit_atmost_fifty_ensure(input):
     return (input.isdigit() and int(input)<=50 ) or input == ""
-

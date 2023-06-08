@@ -23,7 +23,7 @@ hospital_data = [
 
 hospital_data_insert_query = """
     INSERT INTO hospital (hid, hname, password, total_capacity, quantity_required, contact_no, street_name, city, district, state, country, o_plus_available, a_plus_available, b_plus_available, ab_plus_available, o_minus_available, a_minus_available, b_minus_available, ab_minus_available, o_plus_maximum, a_plus_maximum, b_plus_maximum, ab_plus_maximum, o_minus_maximum, a_minus_maximum, b_minus_maximum, ab_minus_maximum)
-    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);
+    VALUES (              %s ,%s    ,%s       ,%s             ,%s                ,%s         ,%s          ,%s   ,%s       ,%s    ,%s      ,%s               ,%s               ,%s               ,%s                ,%s               ,%s                 ,%s                ,%s                 ,%s             ,%s             ,%s             ,%s              ,%s              ,%s              ,%s              ,%s);
 """
 
 cursor.executemany(hospital_data_insert_query,hospital_data)
@@ -53,7 +53,7 @@ admin_data = [
 
 admin_data_insert_query = """
     INSERT INTO admin (admin_name, admin_id, password)
-    VALUES (%s,%s,%s);
+    VALUES (           %s        ,%s       ,%s);
 """
 
 cursor.executemany(admin_data_insert_query,admin_data)

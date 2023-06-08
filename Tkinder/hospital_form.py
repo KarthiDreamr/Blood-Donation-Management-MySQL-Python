@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from form_validation.runtime_validation import *
-from form_validation.hospital_validation.complete_validation import *
+from form_validation.complete_validation import *
 
 # Create a window
 hospital_root = tk.Tk()
@@ -130,7 +130,7 @@ country_entry = ttk.Entry(hospital_frame)
 country_entry.grid(row=5, column=1, sticky=tk.W, padx= padding_xaxis,pady= padding_yaxis)
 
 
-atmost_twenty_char_onlyalpha_ensure_validator = (hospital_frame.register(atmost_twenty_char_onlyalpha_ensure), "%P")
+atmost_twenty_char_onlyalpha_ensure_validator = (hospital_frame.register(atmost_thirty_char_onlyalpha_ensure), "%P")
 country_entry.configure(validate="key", validatecommand=atmost_twenty_char_onlyalpha_ensure_validator)
 
 #row7
@@ -283,15 +283,16 @@ back_button.grid(row=14, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding
 
 #hospital_id_entry,hospital_name_entry,password_entry,total_capacity_entry,quantity_required_entry,contact_number_entry,street_name_entry,city_entry,state_entry,district_entry,country_entry,o_positive_available_entry,o_negative_available_entry,a_positive_available_entry,a_negative_available_entry,b_positive_available_entry,b_negative_available_entry,ab_positive_available_entry,ab_negative_available_entry,o_positive_maximum_entry,o_negative_maximum_entry,a_positive_maximum_entry,a_negative_maximum_entry,b_positive_maximum_entry,b_negative_maximum_entry,ab_positive_maximum_entry,ab_negative_maximum_entry
     
-submit_button = ttk.Button(hospital_frame,text="Submit",command=lambda: form_validator(hospital_id_entry.get(),
+submit_button = ttk.Button(hospital_frame,text="Submit",command=lambda: hospital_form_validator(
+                                                                                       hospital_id_entry.get(),
                                                                                        hospital_name_entry.get(),
                                                                                        password_entry.get(),
                                                                                        total_capacity_entry.get(),
                                                                                        quantity_required_entry.get(),
                                                                                        contact_number_entry.get(),
                                                                                        street_name_entry.get(),
-                                                                                       city_entry.get()
-                                                                                       ,state_entry.get(),
+                                                                                       city_entry.get(),
+                                                                                       state_entry.get(),
                                                                                        district_entry.get(),
                                                                                        country_entry.get(),
                                                                                        o_positive_available_entry.get(),
@@ -309,7 +310,8 @@ submit_button = ttk.Button(hospital_frame,text="Submit",command=lambda: form_val
                                                                                        b_positive_maximum_entry.get(),
                                                                                        b_negative_maximum_entry.get(),
                                                                                        ab_positive_maximum_entry.get(),
-                                                                                       ab_negative_maximum_entry.get()))
+                                                                                       ab_negative_maximum_entry.get())
+                                                                                       )
 
 submit_button.grid(row=14, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 

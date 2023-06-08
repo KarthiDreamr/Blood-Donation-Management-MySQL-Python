@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from form_validation.runtime_validation import *
-from form_validation.admin_validation.complete_validation import *
+from form_validation.complete_validation import *
 
 # Create a window
 admin_root = tk.Tk()
@@ -55,7 +55,7 @@ password_entry.grid(row=3, column=1, padx=padding_xaxis, pady=padding_yaxis)
 back_button = tk.Button(admin_frame, text="back", command=lambda: admin_root.destroy()) 
 back_button.grid(row=4, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-submit_button = ttk.Button(admin_frame,text="Submit",command=lambda: admin_root.destroy())
+submit_button = ttk.Button(admin_frame,text="Submit",command=lambda: admin_form_validator(Admin_name_entry.get(),Admin_id_entry.get(),password_entry.get()) )
 submit_button.grid(row=4, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
@@ -63,9 +63,6 @@ atleast_eight_atmost_thirtychar_ensure_validate = (admin_frame.register(atleast_
 
 password_entry.configure(validate="key", validatecommand=atleast_eight_atmost_thirtychar_ensure_validate)
 
-# # Create a button to submit the form
-# btn = ttk.Button(admin_frame, text="Submit")
-# btn.grid(row=4)
 
 # Start the main loop
 admin_root.mainloop()

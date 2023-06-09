@@ -30,11 +30,11 @@ button_frame.place(relx=0.5, rely=0.6, anchor="center")
 
 def enter_donor():
     # root.destroy()
-    import donor_form
+    import donor_auth
 
 def enter_hospital():
     # root.destroy()
-    import hospital_form
+    import hospital_login
 
 def enter_admin():
     

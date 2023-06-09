@@ -1,18 +1,35 @@
+def error_popup(message):
+    import tkinter as tk
+    from tkinter import messagebox
+    root = tk.Tk()
+    root.withdraw()
+    messagebox.showerror("Error", message)
+    root.destroy()
+
 def alpha_validator(string, length,notnull=True):
     if(notnull and string == "" ):
-        pass
-    if( string.isalpha() and len(string) <= length ):
-        pass
+        error_popup("Field cannot be empty")
+    if( string.isalpha()):
+        error_popup("Only alphabets are allowed")
+    if( len(string) > length ):
+        error_popup("Only "+str(length)+" characters are allowed")
     
 def notnull_integer_validator(string,length=9):
-    if string != "" and string.isnumeric() and len(string) <= length:
-        pass
+
+    if(string == ""):
+        error_popup("Field cannot be empty")
+    if(string.isnumeric() == False):
+        error_popup("Only numbers are allowed")
+    if(len(string) > length):
+        error_popup("Only "+str(length)+" characters are allowed")
 
 def bigint_validator(string,notnull=True,length=10):
     if(notnull and string == "" ):
-        pass
-    if string != "" and string.isnumeric() and len(string) <= length:
-        pass
+        error_popup("Field cannot be empty")
+    if(string.isnumeric() == False):
+        error_popup("Only numbers are allowed")
+    if(len(string) > length):
+        error_popup("Only "+str(length)+" characters are allowed")
 
 
 def hospital_form_validator(

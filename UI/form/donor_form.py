@@ -10,15 +10,6 @@ donor_root.iconbitmap("assets/blood-donation.ico")
 
 donor_root.title("Donor Form")
 
-# Center the window on the screen
-# window_width = donor_root.winfo_width()
-# window_height = donor_root.winfo_height()
-# screen_width = donor_root.winfo_screenwidth()
-# screen_height = donor_root.winfo_screenheight()
-# x_coordinate = int((screen_width/2) - (window_width/2))
-# y_coordinate = int((screen_height/2) - (window_height/2))
-# donor_root.geometry("{}x{}+{}+{}".format(window_width, window_height, x_coordinate, y_coordinate))
-
 donor_frame = tk.Frame(donor_root, padx=10, pady=10)
 donor_frame.grid()
 
@@ -54,7 +45,6 @@ adhaar_id.grid(row=1, column=0, sticky=tk.W)
 
 adhaar_id_entry = ttk.Entry(donor_frame)
 adhaar_id_entry.grid(row=1, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
-
 
 
 atleast_twelve_digit_ensure_validate = (donor_frame.register(atleast_twelve_digit_ensure), "%P")

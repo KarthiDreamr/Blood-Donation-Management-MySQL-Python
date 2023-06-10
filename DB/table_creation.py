@@ -1,4 +1,4 @@
-from DB.db_creation_connection import db_creation_connection
+from DB.db_creation import db_creation_connection
 
 def create_db_table():
 

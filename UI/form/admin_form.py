@@ -22,23 +22,23 @@ admin_frame.grid()
 #row 0
 width_combobox = 17
 
-Admin_name = ttk.Label(admin_frame, text="Admin Name")
-Admin_name.grid(row=0, column=0, sticky=tk.W)
+admin_name = ttk.Label(admin_frame, text="Admin Name")
+admin_name.grid(row=0, column=0, sticky=tk.W)
 
-Admin_name_entry = ttk.Entry(admin_frame)
-Admin_name_entry.grid(row=0, column=1, padx=padding_xaxis, pady=padding_yaxis)
+admin_name_entry = ttk.Entry(admin_frame)
+admin_name_entry.grid(row=0, column=1, padx=padding_xaxis, pady=padding_yaxis)
 
 #row 1
 atmost_fifty_char_onlyalpha_ensure_validator = (admin_frame.register(atmost_fifty_char_onlyalpha_ensure), "%P")
 
-Admin_name_entry.configure(validate="key", validatecommand=atmost_fifty_char_onlyalpha_ensure_validator)
+admin_name_entry.configure(validate="key", validatecommand=atmost_fifty_char_onlyalpha_ensure_validator)
 
 
-Admin_id = ttk.Label(admin_frame, text="Admin ID")
-Admin_id.grid(row=1, column=0, sticky=tk.W)
+admin_id = ttk.Label(admin_frame, text="Admin ID")
+admin_id.grid(row=1, column=0, sticky=tk.W)
 
-Admin_id_entry = ttk.Entry(admin_frame)
-Admin_id_entry.grid(row=1, column=1, padx=padding_xaxis, pady=padding_yaxis)
+admin_id_entry = ttk.Entry(admin_frame)
+admin_id_entry.grid(row=1, column=1, padx=padding_xaxis, pady=padding_yaxis)
 
 #row 2
 password = ttk.Label(admin_frame, text="Password")
@@ -51,11 +51,11 @@ password_entry.grid(row=3, column=1, padx=padding_xaxis, pady=padding_yaxis)
 back_button = tk.Button(admin_frame, text="back", command=lambda: admin_root.destroy()) 
 back_button.grid(row=4, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-submit_button = ttk.Button(admin_frame,text="Submit",command=lambda: admin_form_validator(Admin_name_entry.get(),Admin_id_entry.get(),password_entry.get()) )
+submit_button = ttk.Button(admin_frame,text="Submit",command=lambda: admin_form_validator(admin_name_entry.get(),admin_id_entry.get(),password_entry.get()) )
 submit_button.grid(row=4, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
-atleast_eight_atmost_thirtychar_ensure_validate = (admin_frame.register(atleast_eight_atmost_thirtychar_ensure), "%P")
+atleast_eight_atmost_thirtychar_ensure_validate = (admin_frame.register(atmost_thirty_char_ensure), "%P")
 
 password_entry.configure(validate="key", validatecommand=atleast_eight_atmost_thirtychar_ensure_validate)
 

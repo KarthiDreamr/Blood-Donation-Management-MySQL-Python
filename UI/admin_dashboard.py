@@ -1,21 +1,21 @@
 import tkinter as tk
 from UI.form.donor_form import donor_form_display
-from UI.donor_login import donor_login_display
+from UI.form.hospital_form import hospital_form_display
 
 def enter_donor_form(root):
     root.destroy()
     donor_form_display()
 
-def enter_donor_login(root):
+def enter_hospital_form(root):
     root.destroy()
-    donor_login_display()
+    hospital_form_display()
 
-def donor_auth_display():
+def admin_dashboard_display():
     # Create a new Tkinter window
     root = tk.Tk()
 
     # Set the window title
-    root.title("Donor Authentication")
+    root.title("Admin Dashboard")
 
     # Set the window size
     root.geometry("400x200")
@@ -32,16 +32,16 @@ def donor_auth_display():
     button_frame.pack(pady=10)
 
     # Create a button for new registration
-    new_reg_button = tk.Button(button_frame, text="Register", font=("Arial", 12), width=15, height=2, 
+    new_reg_button = tk.Button(button_frame, text="New Donor", font=("Arial", 12), width=15, height=2, 
                                bg="#333", fg="#fff", activebackground="#555", activeforeground="#fff",
                                command=lambda: enter_donor_form(root) )
     new_reg_button.pack(side=tk.LEFT, padx=10)
 
     # Create a button for registered donor
-    reg_donor_button = tk.Button(button_frame, text="Sign In", font=("Arial", 12), width=15, height=2, 
+    reg_donor_button = tk.Button(button_frame, text="New Hospital", font=("Arial", 12), width=15, height=2, 
                                  bg="#333", fg="#fff", activebackground="#555", activeforeground="#fff",
-                                 command=lambda: enter_donor_login(root)  )
+                                 command=lambda: enter_hospital_form(root)  )
     reg_donor_button.pack(side=tk.LEFT, padx=10)
 
     # Start the Tkinter event loop
-    root.mainloop()
+    root.mainloop() 

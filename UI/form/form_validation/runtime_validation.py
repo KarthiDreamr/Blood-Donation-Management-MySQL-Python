@@ -1,34 +1,64 @@
+#digit
 def isdigit_ensure(input):
-    return input.isdigit() or input == ""
-
-def atmost_thirty_char_onlyalpha_ensure(input):
-    return len(input) <= 30 or input == "" and input.isalpha()
-
-def atmost_thirty_char_ensure(input):
-    return len(input) <= 30 or input == ""
+    if(input!=""):
+        return True
+    return input.isdigit()
 
 def isdigit_atmost_fourhundred_ensure(input):
-    return input.isdigit() and input<50 or input == ""
-
-def atleast_ten_digit_ensure(input):
-    return input.isdigit() and len(input) <= 10 or input == ""
+    if(input!=""):
+        return True
+    return input.isdigit() and int(input) <= 400
 
 def isdigit_atmost_fifty_ensure(input):
-    return (input.isdigit() and int(input)<=50 ) or input == ""
+    if(input!=""):
+        return True
+    return (input.isdigit() and int(input)<=50 )
 
-def atleast_twelve_digit_ensure(input):
-    return input.isdigit() and len(input) <= 12 or input == ""
+def atmost_ten_digit_ensure(input):
+    if(input!=""):
+        return True
+    return input.isdigit() and len(input) <= 10
+
+#street name
+def atmost_fifty_char_ensure(input):
+    if(input!=""):
+        return True
+    return input.isalpha() and len(input) <= 50
+
+def atmost_twelve_digit_ensure(input):
+    if(input!=""):
+        return True
+    return input.isdigit() and len(input) <= 12
+
+
+def atmost_thirty_char_onlyalpha_ensure(input):
+    if(input!=""):
+        return True
+    return len(input)>30 and input.isalpha()
+
+def atmost_thirty_char_ensure(input):
+    if(input!=""):
+        return True
+    return len(input) <= 30
+
+
+
 
 def date_of_birth_ensure(input):
-    return len(input) <= 10 or input == ""
+    if(input!=""):
+        return True
+    return len(input) <= 10
 
-def atmost_fifty_char_ensure(input):
-    return input.isalpha() and len(input) <= 20 or input == ""
 
+#character
 def atmost_twenty_char_ensure(input):
-    return len(input) <= 20 or input == ""
+    if(input!=""):
+        return True
+    return len(input) <= 20
 
 def atmost_plus_three_char_ensure(input):
+    if(input!=""):
+        return True
     if(input!=""):
         if(len(input)<=3):
             if(len(input)==1 and input[0]=='+'):
@@ -48,7 +78,7 @@ def atmost_plus_three_char_ensure(input):
     return True
 
 def atmost_fifty_char_onlyalpha_ensure(input):
-    return len(input) <= 50 or input == "" and input.isalpha()
+    if(input!=""):
+        return True
+    return len(input) <= 50 and input.isalpha()
 
-def atleast_eight_atmost_thirtychar_ensure(input):
-    return len(input) <= 30 and len(input) >= 8 or input == ""

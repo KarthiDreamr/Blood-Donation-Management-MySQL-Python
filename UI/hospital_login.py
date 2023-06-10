@@ -1,30 +1,37 @@
 import tkinter as tk
-import mysql.connector
+from UI.form.form_validation.runtime_validation import *
+from UI.form.form_validation.complete_validation import *
 
 def hlogin_submit():
     print("Hospital Login Submit")
 
-root = tk.Tk()
-root.geometry("300x300")
-root.title("Donor Login Page")
-root.iconbitmap("assets/blood-donation.ico")
+def hospital_login_display():
+    root = tk.Tk()
+    root.geometry("300x300")
+    root.title("Donor Login Page")
+    root.iconbitmap("assets/blood-donation.ico")
 
 
-# Defining the first row
-lblfrstrow = tk.Label(root, text ="Enter Hospital ID", )
-lblfrstrow.place(x = 50, y = 20)
+    # Defining the first row
+    hospital_id = tk.Label(root, text ="Enter Hospital ID", )
+    hospital_id.place(x = 50, y = 20)
 
-Username = tk.Entry(root, width = 35)
-Username.place(x = 150, y = 20, width = 100)
+    hospital_id_entry = tk.Entry(root, width = 35)
+    hospital_id_entry.place(x = 150, y = 20, width = 100)
 
-lblsecrow = tk.Label(root, text ="Enter Password")
-lblsecrow.place(x = 50, y = 50)
+    isdigit_ensure_validate = (root.register(isdigit_ensure), "%P")
 
-password = tk.Entry(root, width = 35)
-password.place(x = 150, y = 50, width = 100)
+    hospital_id_entry.configure(validate="key", validatecommand=isdigit_ensure_validate)
 
-submitbtn = tk.Button(root, text ="Login", command = hlogin_submit)
-submitbtn.place(x = 150, y = 135, width = 55)
 
-root.mainloop()
+    password = tk.Label(root, text ="Enter Password")
+    password.place(x = 50, y = 50)
+
+    password_entry = tk.Entry(root, width = 35)
+    password_entry.place(x = 150, y = 50, width = 100)
+
+    submitbtn = tk.Button(root, text ="Login", command = hlogin_submit)
+    submitbtn.place(x = 150, y = 135, width = 55)
+
+    root.mainloop()
 

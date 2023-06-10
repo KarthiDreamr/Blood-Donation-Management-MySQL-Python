@@ -3,25 +3,25 @@ from UI.form.form_validation.runtime_validation import *
 from UI.form.form_validation.complete_validation import *
 
 def hlogin_submit():
-    print("Hospital Login Submit")
+    print("Admin Login Submit")
 
-def hospital_login_display():
+def admin_login_display():
     root = tk.Tk()
     root.geometry("300x300")
-    root.title("Hospital Login")
+    root.title("Admin Login")
     root.iconbitmap("assets/blood-donation.ico")
 
 
     # Defining the first row
-    hospital_id = tk.Label(root, text ="Enter Hospital ID", )
-    hospital_id.place(x = 50, y = 20)
+    admin_id = tk.Label(root, text ="Enter Admin ID", )
+    admin_id.place(x = 50, y = 20)
 
-    hospital_id_entry = tk.Entry(root, width = 35)
-    hospital_id_entry.place(x = 150, y = 20, width = 100)
+    admin_id_entry = tk.Entry(root, width = 35)
+    admin_id_entry.place(x = 150, y = 20, width = 100)
 
     isdigit_ensure_validate = (root.register(digit_ensure), "%P")
 
-    hospital_id_entry.configure(validate="key", validatecommand=isdigit_ensure_validate)
+    admin_id_entry.configure(validate="key", validatecommand=isdigit_ensure_validate)
 
 
     password = tk.Label(root, text ="Enter Password")
@@ -29,8 +29,6 @@ def hospital_login_display():
 
     password_entry = tk.Entry(root, width = 35)
     password_entry.place(x = 150, y = 50, width = 100)
-
-    password_entry.configure(validate="key", validatecommand=atmost_thirty_char_ensure,show="*")
 
     submitbtn = tk.Button(root, text ="Login", command = hlogin_submit)
     submitbtn.place(x = 150, y = 135, width = 55)

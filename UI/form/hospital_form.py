@@ -26,7 +26,7 @@ def hospital_form_display():
     hospital_id_entry.grid(row=0, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
-    isdigit_ensure_validate = (hospital_frame.register(isdigit_ensure), "%P")
+    isdigit_ensure_validate = (hospital_frame.register(digit_ensure), "%P")
 
     hospital_id_entry.configure(validate="key", validatecommand=isdigit_ensure_validate)
 
@@ -60,7 +60,7 @@ def hospital_form_display():
     total_capacity_entry.grid(row=1, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
-    isdigit_atmost_fourhundred_ensure_validate = (hospital_frame.register(isdigit_atmost_fourhundred_ensure), "%P")
+    isdigit_atmost_fourhundred_ensure_validate = (hospital_frame.register(atmost_fourhundred_digit_ensure), "%P")
 
     total_capacity_entry.configure(validate="key", validatecommand=isdigit_atmost_fourhundred_ensure_validate)
 
@@ -142,7 +142,7 @@ def hospital_form_display():
 
 
 
-    isdigit_atmost_fifty_ensure_validate = (hospital_frame.register(isdigit_atmost_fifty_ensure), "%P")
+    isdigit_atmost_fifty_ensure_validate = (hospital_frame.register(atmost_fifty_digit_ensure), "%P")
 
     o_positive_available_entry.configure(validate="key", validatecommand=isdigit_atmost_fifty_ensure_validate)
 

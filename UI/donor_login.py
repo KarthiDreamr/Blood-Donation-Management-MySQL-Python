@@ -8,7 +8,7 @@ def dlogin_submit():
 def donor_login_display():
     root = tk.Tk()
     root.geometry("300x300")
-    root.title("Donor Login Page")
+    root.title("Donor Login")
     root.iconbitmap("assets/blood-donation.ico")
 
 

@@ -73,7 +73,7 @@ def create_db_table():
                     blood_type varchar(3) NOT NULL,
                     pregnancy_status BOOL NOT NULL,
                     HIV BOOL NOT NULL,
-                    street_name varchar(50) NOT NULL,
+                    street_name varchar(30) NOT NULL,
                     city varchar(30) NOT NULL,
                     district varchar(30) NOT NULL,
                     state varchar(30) NOT NULL,

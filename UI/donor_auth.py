@@ -1,6 +1,6 @@
 import tkinter as tk
-from UI.form.donor_form import donor_form_display
-from UI.donor_login import donor_login_display
+from UI.form.registration.donor_reg import donor_form_display
+from UI.form.login.donor_login import donor_login_display
 
 def enter_donor_form(root):
     root.destroy()

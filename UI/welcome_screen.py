@@ -1,7 +1,7 @@
 import tkinter as tk
 from UI.donor_auth import donor_auth_display
-from UI.hospital_login import hospital_login_display
-from UI.admin_login import admin_login_display
+from UI.form.login.hospital_login import hospital_login_display
+from UI.form.login.admin_login import admin_login_display
 
 def enter_donor():
     # root.destroy()
@@ -13,7 +13,7 @@ def enter_hospital():
 
 def enter_admin():
 
-    # # root.destroy()
+    # root.destroy()
     admin_login_display()
 
 def show_frame(frame):

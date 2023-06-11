@@ -1,8 +1,8 @@
 import tkinter as tk
 
-from UI.form.donor_form import donor_form_display
-from UI.form.hospital_form import hospital_form_display
-from UI.form.admin_form import admin_form_display
+from UI.form.donor_reg import donor_form_display
+from UI.form.hospital_reg import hospital_form_display
+from UI.form.admin_reg import admin_form_display
 
 def enter_donor_form(root):
     root.destroy()

@@ -1,13 +1,16 @@
 import tkinter as tk
+from DB.db_creation import db_connection
 
-def error_popup(message):
+from DB.donor_insertion import insert_donor
+from DB.hospital_insertion import insert_hospital
+from DB.admin_insertion import insert_admin
 
-    from tkinter import messagebox
-    root = tk.Tk()
-    root.withdraw()
-    messagebox.showerror("Error", message)
-    root.destroy()
+from UI.error import error_popup
 
+def notnull_validator(string,length=30):
+    if(string == "" and length <= 30):
+        #error_popup("Field cannot be empty")
+        raise TypeError("Field cannot be empty")
 
 def alpha_validator(string, length,notnull=True):
     if(notnull and string == "" ):
@@ -41,162 +44,248 @@ def bigint_validator(string,notnull=True,length=10):
         #error_popup("Only "+str(length)+" characters are allowed")
         raise TypeError("Only "+str(length)+" characters are allowed")
     
-def hospital_registration_validator(
-    hospital_id_entry,
-    hospital_name_entry,
-    password_entry,
-    total_capacity_entry,
-    quantity_required_entry,
-    contact_number_entry,
-    street_name_entry,
-    city_entry,
-    district_entry,
-    state_entry,
-    country_entry,
-    o_positive_available_entry,
-    o_negative_available_entry,
-    a_positive_available_entry,
-    a_negative_available_entry,
-    b_positive_available_entry,
-    b_negative_available_entry,
-    ab_positive_available_entry,
-    ab_negative_available_entry,
-    o_positive_maximum_entry,
-    o_negative_maximum_entry,
-    a_positive_maximum_entry,
-    a_negative_maximum_entry,
-    b_positive_maximum_entry,
-    b_negative_maximum_entry,
-    ab_positive_maximum_entry,
-    ab_negative_maximum_entry
 
+#registration validators
+
+def hospital_registration_validator(
+    hospital_root,
+    hospital_id,
+    hospital_name,
+    password,
+    total_capacity,
+    quantity_required,
+    contact_number,
+    street_name,
+    city,
+    district,
+    state,
+    country,
+    o_positive_available,
+    o_negative_available,
+    a_positive_available,
+    a_negative_available,
+    b_positive_available,
+    b_negative_available,
+    ab_positive_available,
+    ab_negative_available,
+    o_positive_maximum,
+    o_negative_maximum,
+    a_positive_maximum,
+    a_negative_maximum,
+    b_positive_maximum,
+    b_negative_maximum,
+    ab_positive_maximum,
+    ab_negative_maximum
     ):
 
     try:
 
-        alpha_validator(hospital_name_entry,30)
-        alpha_validator(password_entry,30)  
-        alpha_validator(street_name_entry,50)
-        alpha_validator(city_entry,30)
-        alpha_validator(district_entry,30)
-        alpha_validator(state_entry,30)
-        alpha_validator(country_entry,30)
+        alpha_validator(hospital_name,30)
+        notnull_validator(password,30)  
+        alpha_validator(street_name,50)
+        alpha_validator(city,30)
+        alpha_validator(district,30)
+        alpha_validator(state,30)
+        alpha_validator(country,30)
 
-        notnull_integer_validator(hospital_id_entry)
-        notnull_integer_validator(total_capacity_entry)
-        notnull_integer_validator(quantity_required_entry)
-        notnull_integer_validator(o_positive_available_entry)
-        notnull_integer_validator(o_negative_available_entry)
-        notnull_integer_validator(a_positive_available_entry)
-        notnull_integer_validator(a_negative_available_entry)
-        notnull_integer_validator(b_positive_available_entry)
-        notnull_integer_validator(b_negative_available_entry)
-        notnull_integer_validator(ab_positive_available_entry)
-        notnull_integer_validator(ab_negative_available_entry)
-        notnull_integer_validator(o_positive_maximum_entry)
-        notnull_integer_validator(o_negative_maximum_entry)
-        notnull_integer_validator(a_positive_maximum_entry)
-        notnull_integer_validator(a_negative_maximum_entry)
-        notnull_integer_validator(b_positive_maximum_entry)
-        notnull_integer_validator(b_negative_maximum_entry)
-        notnull_integer_validator(ab_positive_maximum_entry)
-        notnull_integer_validator(ab_negative_maximum_entry)
+        notnull_integer_validator(hospital_id)
+        notnull_integer_validator(total_capacity)
+        notnull_integer_validator(quantity_required)
+        notnull_integer_validator(o_positive_available)
+        notnull_integer_validator(o_negative_available)
+        notnull_integer_validator(a_positive_available)
+        notnull_integer_validator(a_negative_available)
+        notnull_integer_validator(b_positive_available)
+        notnull_integer_validator(b_negative_available)
+        notnull_integer_validator(ab_positive_available)
+        notnull_integer_validator(ab_negative_available)
+        notnull_integer_validator(o_positive_maximum)
+        notnull_integer_validator(o_negative_maximum)
+        notnull_integer_validator(a_positive_maximum)
+        notnull_integer_validator(a_negative_maximum)
+        notnull_integer_validator(b_positive_maximum)
+        notnull_integer_validator(b_negative_maximum)
+        notnull_integer_validator(ab_positive_maximum)
+        notnull_integer_validator(ab_negative_maximum)
 
-        bigint_validator(contact_number_entry)
+        bigint_validator(contact_number)
+
+        hospital_data =  (
+            hospital_root,
+            hospital_id,
+            hospital_name,
+            password,
+            total_capacity,
+            quantity_required,
+            contact_number,
+            street_name,
+            city,
+            district,
+            state,
+            country,
+            o_positive_available,
+            o_negative_available,
+            a_positive_available,
+            a_negative_available,
+            b_positive_available,
+            b_negative_available,
+            ab_positive_available,
+            ab_negative_available,
+            o_positive_maximum,
+            o_negative_maximum,
+            a_positive_maximum,
+            a_negative_maximum,
+            b_positive_maximum,
+            b_negative_maximum,
+            ab_positive_maximum,
+            ab_negative_maximum
+            )
+        
+        insert_hospital(hospital_data)
+
+        hospital_root.destroy()
 
     except TypeError as e:
         error_popup(e)
         return 
-
-def admin_registration_validator( Admin_name_entry,Admin_id_entry,
-                          password_entry ):
-    
-    alpha_validator(Admin_name_entry,50)
-    notnull_integer_validator(Admin_id_entry)
-    alpha_validator(password_entry,30)
  
 def donor_registration_validator(
     donor_root,
-    first_name_entry,
-    last_name_entry,
-    adhaar_id_entry,
-    date_of_birth_entry,
-    month_of_birth_entry,
-    year_of_birth_entry,
-    street_name_entry,
-    city_entry,
-    district_entry,
-    state_entry,
-    country_entry,
-    country_code_entry,
-    father_name_entry,
-    mother_name_entry,
-    guardian_name_entry,
-    phone_1_entry,
-    phone_2_entry,
-    hospital_ID_entry,
-    new_password_entry,
-    current_password_entry
+    first_name,
+    last_name,
+    adhaar_id,
+    date_of_birth,
+    month_of_birth,
+    year_of_birth,
+    street_name,
+    city,
+    district,
+    state,
+    country,
+    country_code,
+    father_name,
+    mother_name,
+    guardian_name,
+    phone_1,
+    phone_2,
+    hospital_ID,
+    new_password,
+    confirm_password,
     ):
     
     try:
-        alpha_validator(first_name_entry,30)
-        alpha_validator(last_name_entry,30)
-        alpha_validator(street_name_entry,30)
-        alpha_validator(city_entry,30)
-        alpha_validator(district_entry,30)
-        alpha_validator(state_entry,30)
-        alpha_validator(country_entry,30)
-        alpha_validator(country_code_entry,3)
-        alpha_validator(father_name_entry,30)
-        alpha_validator(mother_name_entry,30)
-        alpha_validator(guardian_name_entry,30)
-        alpha_validator(current_password_entry,30)
-        alpha_validator(new_password_entry,30)
+        alpha_validator(first_name,30)
+        alpha_validator(last_name,30)
+        alpha_validator(street_name,30)
+        alpha_validator(city,30)
+        alpha_validator(district,30)
+        alpha_validator(state,30)
+        alpha_validator(country,30)
+        alpha_validator(country_code,3)
+        alpha_validator(father_name,30)
+        alpha_validator(mother_name,30)
+        alpha_validator(guardian_name,30)
+        notnull_validator(confirm_password,30)
+        notnull_validator(new_password,30)
 
-        notnull_integer_validator(hospital_ID_entry)
-        notnull_integer_validator(date_of_birth_entry,2)
-        notnull_integer_validator(month_of_birth_entry,2)
-        notnull_integer_validator(year_of_birth_entry,4)
+        notnull_integer_validator(hospital_ID)
+        notnull_integer_validator(date_of_birth,2)
+        notnull_integer_validator(month_of_birth,2)
+        notnull_integer_validator(year_of_birth,4)
 
-        bigint_validator(adhaar_id_entry,length=12)
-        bigint_validator(phone_1_entry)
-        bigint_validator(phone_2_entry,notnull=False)
+        bigint_validator(adhaar_id,length=12)
+        bigint_validator(phone_1)
+        bigint_validator(phone_2,notnull=False)
+
+        if(new_password!=confirm_password):
+            #error_popup("Passwords do not match")
+            raise TypeError("Passwords do not match")
+
+        cursor = db_connection().cursor()
+        
+        donor_data = (  
+                        first_name,
+                        last_name,
+                        adhaar_id,
+                        date_of_birth,
+                        month_of_birth,
+                        year_of_birth,
+                        street_name,
+                        city,
+                        district,
+                        state,
+                        country,
+                        country_code,
+                        father_name,
+                        mother_name,
+                        guardian_name,
+                        phone_1,
+                        phone_2,
+                        hospital_ID,
+                        new_password,
+                        confirm_password,
+                        )
+        
+        insert_donor(donor_data)
+
+        donor_root.destroy()
     
     except TypeError as e:
         error_popup(e)
         return
 
-def admin_registration_validator(admin_name_entry,admin_id_entry,password_entry ):
+
+def admin_registration_validator(admin_root,admin_name,admin_id,password ):
     try:
-        alpha_validator(admin_name_entry,50)
-        notnull_integer_validator(admin_id_entry)
-        alpha_validator(password_entry,30)
+        alpha_validator(admin_name,50)
+        notnull_integer_validator(admin_id)
+        alpha_validator(password,30)
+
+        admin_data = (admin_root,admin_name,admin_id,password)
+
+        insert_admin(admin_data)
+
+        admin_root.destroy()
+
     except TypeError as e:
         error_popup(e)
         return
     
 
-def donor_login_validator(donor_id_entry,password_entry):
+
+
+
+#login validators
+
+def donor_login_validator(donor_login_root,donor_id,password):
     try:
-        notnull_integer_validator(donor_id_entry)
-        alpha_validator(password_entry,30)
+        notnull_integer_validator(donor_id)
+        notnull_validator(password,30)
+
+        donor_login_root.destroy()
+
     except TypeError as e:
         error_popup(e)
         return
     
-def hospital_login_validator(hospital_id_entry,password_entry):
+def hospital_login_validator(hospital_login_root ,hospital_id,password):
     try:
-        notnull_integer_validator(hospital_id_entry)
-        alpha_validator(password_entry,30)
+        notnull_integer_validator(hospital_id)
+        notnull_validator(password,30)
+
+        hospital_login_root.destroy()
+
     except TypeError as e:
         error_popup(e)
         return
     
-def admin_login_validator(admin_id_entry,password_entry):
+def admin_login_validator(admin_login_root,admin_id,password):
     try:
-        notnull_integer_validator(admin_id_entry)
-        alpha_validator(password_entry,30)
+        notnull_integer_validator(admin_id)
+        notnull_validator(password,30)
+
+        admin_login_root.destroy()
+        
     except TypeError as e:
         error_popup(e)
         return

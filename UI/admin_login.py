@@ -2,8 +2,8 @@ import tkinter as tk
 from UI.form.form_validation.runtime_validation import *
 from UI.form.form_validation.complete_validation import *
 
-def hlogin_submit():
-    print("Admin Login Submit")
+def alogin_submit():
+    pass
 
 def admin_login_display():
     root = tk.Tk()
@@ -30,7 +30,10 @@ def admin_login_display():
     password_entry = tk.Entry(root, width = 35)
     password_entry.place(x = 150, y = 50, width = 100)
 
-    submitbtn = tk.Button(root, text ="Login", command = hlogin_submit)
+    atmost_thirty_char_onlyalpha_ensure_validate = (root.register(atmost_thirty_char_onlyalpha_ensure), "%P")
+    password_entry.configure(show="*",validate="key", validatecommand=atmost_thirty_char_onlyalpha_ensure_validate)
+
+    submitbtn = tk.Button(root, text ="Login", command = alogin_submit)
     submitbtn.place(x = 150, y = 135, width = 55)
 
     root.mainloop()

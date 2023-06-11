@@ -1,4 +1,5 @@
-from DB.db_creation import db_creation_connection
+# from DB.db_creation import db_creation_connection
+from db_creation import db_creation_connection
 
 def create_db_table():
 
@@ -128,3 +129,5 @@ def create_db_table():
         )
         print("Reports table created successfully!") 
         
+create_db_table()
+print("code execution successful!")

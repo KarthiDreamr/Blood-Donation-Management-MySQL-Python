@@ -51,7 +51,7 @@ password_entry.grid(row=3, column=1, padx=padding_xaxis, pady=padding_yaxis)
 back_button = tk.Button(admin_frame, text="back", command=lambda: admin_root.destroy()) 
 back_button.grid(row=4, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
-submit_button = ttk.Button(admin_frame,text="Submit",command=lambda: admin_form_validator(admin_name_entry.get(),admin_id_entry.get(),password_entry.get()) )
+submit_button = ttk.Button(admin_frame,text="Submit",command=lambda: admin_registration_validator(admin_name_entry.get(),admin_id_entry.get(),password_entry.get()) )
 submit_button.grid(row=4, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 

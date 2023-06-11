@@ -1,6 +1,8 @@
 import tkinter as tk
+
 from UI.form.donor_form import donor_form_display
 from UI.form.hospital_form import hospital_form_display
+from UI.form.admin_form import admin_form_display
 
 def enter_donor_form(root):
     root.destroy()
@@ -9,6 +11,10 @@ def enter_donor_form(root):
 def enter_hospital_form(root):
     root.destroy()
     hospital_form_display()
+
+def enter_admin_form(root):
+    root.destroy()
+    admin_form_display()
 
 def admin_dashboard_display():
     # Create a new Tkinter window
@@ -41,6 +47,11 @@ def admin_dashboard_display():
     reg_donor_button = tk.Button(button_frame, text="New Hospital", font=("Arial", 12), width=15, height=2, 
                                  bg="#333", fg="#fff", activebackground="#555", activeforeground="#fff",
                                  command=lambda: enter_hospital_form(root)  )
+    reg_donor_button.pack(side=tk.LEFT, padx=10)
+
+    reg_donor_button = tk.Button(button_frame, text="New Admin", font=("Arial", 12), width=15, height=2, 
+                                 bg="#333", fg="#fff", activebackground="#555", activeforeground="#fff",
+                                 command=lambda: enter_admin_form(root)  )
     reg_donor_button.pack(side=tk.LEFT, padx=10)
 
     # Start the Tkinter event loop

@@ -1,4 +1,5 @@
-from DB.db_connection import db_connection
+# from DB.db_creation import db_connection
+from db_creation import db_connection
 
 def insert_hospital():
 
@@ -25,3 +26,7 @@ def insert_hospital():
     # Close the cursor and the connection
     cursor.close()
     connection.close()
+
+
+insert_hospital()
+print("code execution successful!")

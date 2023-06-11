@@ -274,7 +274,7 @@ def donor_form_display():
     back_button.grid(row=13, column=0, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
     submit_button = ttk.Button(donor_frame,text="Submit")
-    submit_button = ttk.Button(donor_frame,text="Submit",command=lambda: donor_form_validator(
+    submit_button = ttk.Button(donor_frame,text="Submit",command=lambda: donor_registration_validator(
         donor_root,
         first_name_entry.get(),
         last_name_entry.get(),

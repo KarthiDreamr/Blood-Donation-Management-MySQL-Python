@@ -59,9 +59,8 @@ def donor_form_display():
     gender_options = ["Male", "Female", "Nonbinary", "Other"]
 
     # Create a combobox with the gender_options as values
-    gender = ttk.Combobox(donor_frame, width=width_combobox, textvariable=tk.StringVar(), values=gender_options, state="readonly")
-    gender.current(0)
-    gender.grid(row=1, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
+    gender_entry = ttk.Combobox(donor_frame, width=width_combobox, textvariable=tk.StringVar(), values=gender_options, state="readonly")
+    gender_entry.grid(row=1, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
     #row 2
@@ -98,33 +97,33 @@ def donor_form_display():
     blood_type = ttk.Label(donor_frame, text="Blood Type")
     blood_type.grid(row=3, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
-    blood_type = ttk.Combobox(donor_frame, width = width_combobox, textvariable = tk.StringVar(), values=["A+","A-","B+","B-","AB+","AB-","O+","O-"], state="readonly")
-    blood_type.grid(row=3, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
+    blood_type_entry = ttk.Combobox(donor_frame, width = width_combobox, textvariable = tk.StringVar(), values=["A+","A-","B+","B-","AB+","AB-","O+","O-"], state="readonly")
+    blood_type_entry.grid(row=3, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
     #row 4
     pregnancy_status = ttk.Label(donor_frame, text="Pregnancy Status")
     pregnancy_status.grid(row=4, column=0, sticky=tk.W)
 
-    pregnancy_status = ttk.Combobox(donor_frame, width = width_combobox, textvariable = tk.StringVar(), values=["Yes","No"], state="readonly")
-    pregnancy_status.grid(row=4, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
+    pregnancy_status_entry = ttk.Combobox(donor_frame, width = width_combobox, textvariable = tk.StringVar(), values=["Yes","No"], state="readonly")
+    pregnancy_status_entry.grid(row=4, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
 
     HIV_status = ttk.Label(donor_frame, text="HIV Status")
     HIV_status.grid(row=4, column=2, sticky=tk.W,padx=(padding_xaxis,0))
 
-    HIV_status = ttk.Combobox(donor_frame, width = width_combobox, textvariable = tk.StringVar(), values=["Positive","Negative"], state="readonly")
-    HIV_status.grid(row=4, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
+    HIV_status_entry = ttk.Combobox(donor_frame, width = width_combobox, textvariable = tk.StringVar(), values=["Positive","Negative"], state="readonly")
+    HIV_status_entry.grid(row=4, column=3, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 
     #row 5
     street_name = ttk.Label(donor_frame, text="Street Name")
     street_name.grid(row=5, column=0, sticky=tk.W)
 
-    Street_name_entry = ttk.Entry(donor_frame)
-    Street_name_entry.grid(row=5, column=1, sticky=tk.W ,padx= padding_xaxis,pady= padding_yaxis)
+    street_name_entry = ttk.Entry(donor_frame)
+    street_name_entry.grid(row=5, column=1, sticky=tk.W ,padx= padding_xaxis,pady= padding_yaxis)
 
 
     atmost_fifty_char_ensure_validator = (donor_frame.register(atmost_fifty_char_ensure), "%P")
-    Street_name_entry.configure(validate="key", validatecommand=atmost_fifty_char_ensure_validator)
+    street_name_entry.configure(validate="key", validatecommand=atmost_fifty_char_ensure_validator)
 
 
     city = ttk.Label(donor_frame, text="City")
@@ -282,7 +281,7 @@ def donor_form_display():
         date_of_birth_entry.get(),
         month_of_birth_entry.get(),
         year_of_birth_entry.get(),
-        Street_name_entry.get(),
+        street_name_entry.get(),
         city_entry.get(),
         district_entry.get(),
         state_entry.get(),
@@ -295,8 +294,13 @@ def donor_form_display():
         phone_2_entry.get(),
         hospital_ID_entry.get(),
         new_password_entry.get(),
-        confirm_password_entry.get()
-    ) )
+        confirm_password_entry.get(),
+        gender_entry.get(),
+        pregnancy_status_entry.get(),
+        HIV_status_entry.get(),
+        blood_type_entry.get()
+    ) 
+    )
 
     submit_button.grid(row=13, column=1, sticky=tk.W,padx= padding_xaxis,pady= padding_yaxis)
 

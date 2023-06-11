@@ -3,30 +3,30 @@ from UI.donor_auth import donor_auth_display
 from UI.form.login.hospital_login import hospital_login_display
 from UI.form.login.admin_login import admin_login_display
 
+# Create the main window
+root = tk.Tk()
+root.iconbitmap("assets/blood-donation.ico")
+
+# Set the window title
+root.title("Welcome Page")
+
 def enter_donor():
-    # root.destroy()
+    root.destroy()
     donor_auth_display()
 
 def enter_hospital():
-    # root.destroy()
+    root.destroy()
     hospital_login_display()
 
 def enter_admin():
 
-    # root.destroy()
+    root.destroy()
     admin_login_display()
 
 def show_frame(frame):
     frame.tkraise()
 
 def welcome_screen_display():
-
-    # Create the main window
-    root = tk.Tk()
-    root.iconbitmap("assets/blood-donation.ico")
-
-    # Set the window title
-    root.title("Welcome Page")
 
     # Create a canvas widget to hold the background image
     canvas = tk.Canvas(root, width=root.winfo_screenwidth(), height=root.winfo_screenheight())

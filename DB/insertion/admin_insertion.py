@@ -1,4 +1,4 @@
-from DB.db_creation import db_connection
+from DB.creation.db_creation import db_connection
 from UI.error import error_popup
 
 

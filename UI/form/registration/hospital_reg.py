@@ -281,6 +281,7 @@ def hospital_form_display():
     #validator function
         
     submit_button = ttk.Button(hospital_frame,text="Submit",command=lambda: hospital_registration_validator(
+                                                                                        hospital_root,
                                                                                         hospital_id_entry.get(),
                                                                                         hospital_name_entry.get(),
                                                                                         password_entry.get(),

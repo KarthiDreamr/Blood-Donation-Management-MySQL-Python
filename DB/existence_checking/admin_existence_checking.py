@@ -2,7 +2,8 @@ from DB.creation.db_creation import db_connection
 from UI.dashboard.admin_dashboard import admin_dashboard_display
 
 def admin_existence_check(admin_id,password):
-    cursor = db_connection().cursor()
+    connection = db_connection()
+    cursor = connection.cursor()
 
     #check if given admin_id and password  exists in admin table
 

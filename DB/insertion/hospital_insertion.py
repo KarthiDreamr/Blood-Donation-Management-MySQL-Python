@@ -19,7 +19,7 @@ def insert_hospital(hospital_data):
         VALUES (              %s ,%s    ,%s       ,%s             ,%s                ,%s         ,%s          ,%s   ,%s       ,%s    ,%s      ,%s               ,%s               ,%s               ,%s                ,%s               ,%s                 ,%s                ,%s                 ,%s             ,%s             ,%s             ,%s              ,%s              ,%s              ,%s              ,%s);
     """
 
-    cursor.executemany(hospital_data_insert_query,hospital_data)
+    cursor.execute(hospital_data_insert_query,hospital_data)
 
     connection.commit()
 

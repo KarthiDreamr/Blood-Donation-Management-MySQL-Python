@@ -266,11 +266,11 @@ def donor_registration_validator(
 
 def admin_registration_validator(admin_root,admin_name,admin_id,password ):
     try:
-        alpha_validator(admin_name,50)
-        notnull_integer_validator(admin_id)
-        alpha_validator(password,30)
+        alpha_validator("admin_name",admin_name,50)
+        notnull_integer_validator("admin_id",admin_id)
+        alpha_validator("password",password,30)
 
-        admin_data = (admin_root,admin_name,admin_id,password)
+        admin_data = (admin_name,admin_id,password)
 
         insert_admin(admin_data)
 
@@ -285,8 +285,8 @@ def admin_registration_validator(admin_root,admin_name,admin_id,password ):
 
 def donor_login_validator(donor_login_root,donor_id,password):
     try:
-        notnull_integer_validator(donor_id)
-        notnull_validator(password,30)
+        notnull_integer_validator("donor_id",donor_id)
+        notnull_validator("password",password,30)
 
         donor_existence_check(donor_id,password)
         donor_login_root.destroy()
@@ -297,8 +297,8 @@ def donor_login_validator(donor_login_root,donor_id,password):
     
 def hospital_login_validator(hospital_login_root ,hospital_id,password):
     try:
-        notnull_integer_validator(hospital_id)
-        notnull_validator(password,30)
+        notnull_integer_validator("hospital_id",hospital_id)
+        notnull_validator("password",password,30)
 
         hospital_existence_check(hospital_id,password)
         hospital_login_root.destroy()
@@ -309,8 +309,8 @@ def hospital_login_validator(hospital_login_root ,hospital_id,password):
     
 def admin_login_validator(admin_login_root,admin_id,password):
     try:
-        notnull_integer_validator(admin_id)
-        notnull_validator(password,30)
+        notnull_integer_validator("admin_id",admin_id)
+        notnull_validator("password",password,30)
 
         admin_existence_check(admin_id,password)
         admin_login_root.destroy()

@@ -1,18 +1,17 @@
 import tkinter as tk
 
-from UI.form.registration.donor_reg import donor_form_display
-from UI.form.registration.hospital_reg import hospital_form_display
-from UI.form.registration.admin_reg import admin_form_display
-
 def enter_donor_form(root):
+    from UI.form.registration.donor_reg import donor_form_display
     root.destroy()
     donor_form_display()
 
 def enter_hospital_form(root):
+    from UI.form.registration.hospital_reg import hospital_form_display
     root.destroy()
     hospital_form_display()
 
 def enter_admin_form(root):
+    from UI.form.registration.admin_reg import admin_form_display
     root.destroy()
     admin_form_display()
 
@@ -22,9 +21,6 @@ def admin_dashboard_display():
 
     # Set the window title
     root.title("Admin Dashboard")
-
-    # Set the window size
-    root.geometry("400x200")
 
     # Set the window background color
     root.config(bg="#f2f2f2")

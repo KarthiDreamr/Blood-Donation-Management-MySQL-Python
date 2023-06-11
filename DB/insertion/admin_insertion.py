@@ -19,7 +19,7 @@ def insert_admin(admin_data):
         VALUES (           %s        ,%s       ,%s);
     """
 
-    cursor.executemany(admin_data_insert_query,admin_data)
+    cursor.execute(admin_data_insert_query,admin_data)
     connection.commit()
 
     error_popup("Admin data inserted successfully!")

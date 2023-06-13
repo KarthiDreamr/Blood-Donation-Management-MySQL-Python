@@ -1,5 +1,5 @@
 from DB.creation.db_creation import db_connection
-from UI.popup import error_popup
+from UI.popup import info_popup
 
 
 def insert_donor(donor_data):
@@ -28,7 +28,7 @@ def insert_donor(donor_data):
   connection.commit()
 
 
-  error_popup("Donor data inserted successfully!")
+  info_popup("Donor data inserted successfully!")
 
   # Close the cursor and the connection
   cursor.close()

@@ -1,5 +1,5 @@
 from DB.creation.db_creation import db_connection
-from UI.popup import error_popup
+from UI.popup import info_popup
 
 
 def insert_admin(admin_data):
@@ -22,7 +22,7 @@ def insert_admin(admin_data):
     cursor.execute(admin_data_insert_query,admin_data)
     connection.commit()
 
-    error_popup("Admin data inserted successfully!")
+    info_popup("Admin data inserted successfully!")
 
     cursor.close()
     connection.close()

@@ -141,9 +141,9 @@ def hospital_registration_validator(
             ab_negative_maximum
             )
         
+        hospital_root.destroy()
         insert_hospital(hospital_data)
 
-        hospital_root.destroy()
 
     except TypeError as e:
         error_popup(e)
@@ -254,9 +254,9 @@ def donor_registration_validator(
                         
                         )
         
+        donor_root.destroy()
         insert_donor(donor_data)
 
-        donor_root.destroy()
     
     except TypeError as e:
         error_popup(e)
@@ -271,9 +271,9 @@ def admin_registration_validator(admin_root,admin_name,admin_id,password ):
 
         admin_data = (admin_name,admin_id,password)
 
+        admin_root.destroy()
         insert_admin(admin_data)
 
-        admin_root.destroy()
 
     except TypeError as e:
         error_popup(e)
@@ -287,8 +287,8 @@ def donor_login_validator(donor_login_root,donor_id,password):
         notnull_integer_validator("donor_id",donor_id,10)
         notnull_validator("password",password,30)
 
-        donor_existence_check(donor_id,password)
         donor_login_root.destroy()
+        donor_existence_check(donor_id,password)
 
     except TypeError as e:
         error_popup(e)
@@ -299,8 +299,8 @@ def hospital_login_validator(hospital_login_root ,hospital_id,password):
         notnull_integer_validator("hospital_id",hospital_id)
         notnull_validator("password",password,30)
 
-        hospital_existence_check(hospital_id,password)
         hospital_login_root.destroy()
+        hospital_existence_check(hospital_id,password)
 
     except TypeError as e:
         error_popup(e)
@@ -311,8 +311,8 @@ def admin_login_validator(admin_login_root,admin_id,password):
         notnull_integer_validator("admin_id",admin_id)
         notnull_validator("password",password,30)
 
-        admin_existence_check(admin_id,password)
         admin_login_root.destroy()
+        admin_existence_check(admin_id,password)
         
     except TypeError as e:
         error_popup(e)

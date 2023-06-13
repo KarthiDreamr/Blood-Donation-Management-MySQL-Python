@@ -1,6 +1,6 @@
 from DB.creation.db_creation import db_connection
 
-from UI.popup import error_popup
+from UI.popup import info_popup
 
 
 def insert_hospital(hospital_data):
@@ -23,7 +23,7 @@ def insert_hospital(hospital_data):
 
     connection.commit()
 
-    error_popup("Hospital data inserted successfully!")
+    info_popup("Hospital data inserted successfully!")
 
     # Close the cursor and the connection
     cursor.close()

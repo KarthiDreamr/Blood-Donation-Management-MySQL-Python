@@ -6,7 +6,7 @@ from DB.existence_checking.donor_existence_checking import donor_existence_check
 from DB.existence_checking.hospital_existence_checking import hospital_existence_check
 from DB.existence_checking.admin_existence_checking import admin_existence_check
 
-from UI.error import error_popup
+from UI.popup import error_popup
 
 def notnull_validator(field_name,string,max_length=30,minlength=1):
     if(string == "" and string <= max_length and string >= minlength):
@@ -112,7 +112,6 @@ def hospital_registration_validator(
         bigint_validator("contact_number",contact_number)
 
         hospital_data =  (
-            hospital_root,
             hospital_id,
             hospital_name,
             password,
@@ -229,7 +228,7 @@ def donor_registration_validator(
             HIV=False
     
         donor_data = (  
-                        aadhaar_id,
+                        int(aadhaar_id),
                         gender,
                         first_name,
                         last_name,
@@ -279,13 +278,13 @@ def admin_registration_validator(admin_root,admin_name,admin_id,password ):
     except TypeError as e:
         error_popup(e)
         return
-    
 
 #login validators
 
+
 def donor_login_validator(donor_login_root,donor_id,password):
     try:
-        notnull_integer_validator("donor_id",donor_id)
+        notnull_integer_validator("donor_id",donor_id,10)
         notnull_validator("password",password,30)
 
         donor_existence_check(donor_id,password)

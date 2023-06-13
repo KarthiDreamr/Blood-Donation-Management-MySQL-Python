@@ -1,6 +1,6 @@
 from DB.creation.db_creation import db_connection
 
-from UI.error import error_popup
+from UI.popup import error_popup
 
 
 def insert_hospital(hospital_data):

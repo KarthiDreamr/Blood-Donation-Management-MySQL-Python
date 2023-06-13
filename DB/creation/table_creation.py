@@ -127,7 +127,7 @@ def create_db_table():
         print("Admin table created successfully!")
 
         admin_data = [
-            ('Admin', 1234, 'Password1@'),
+            ('Admin', 1234, 'AAAA'),
         ]
 
         admin_data_insert_query = """

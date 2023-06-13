@@ -47,13 +47,13 @@ def welcome_screen_display():
     button_frame.place(relx=0.5, rely=0.6, anchor="center")
 
     # Create the buttons within the frame
-    donor = tk.Button(button_frame, text="DONOR", command=enter_donor, bg="red", width=10, height=2)
+    donor = tk.Button(button_frame, text="DONOR", command=enter_donor, bg="orange", width=10, height=2)
     donor.grid(row=0, column=0, padx=10, pady=10)
 
-    hospital = tk.Button(button_frame, text="HOSPITAL", command=enter_hospital, bg="lightgreen",width=10, height=2)
+    hospital = tk.Button(button_frame, text="HOSPITAL", command=enter_hospital, bg="green",width=10, height=2)
     hospital.grid(row=0, column=1,padx=10, pady=10)
 
-    admin = tk.Button(button_frame, text="ADMIN", command=enter_admin, bg="orange",width=10, height=2)
+    admin = tk.Button(button_frame, text="ADMIN", command=enter_admin, bg="violet",width=10, height=2)
     admin.grid(row=0, column=2,padx=10,pady=10)
 
     root.mainloop()

@@ -14,3 +14,4 @@ def admin_existence_check(admin_id,password):
         raise TypeError("Invalid Credentials")
     else:
         admin_dashboard_display()
+

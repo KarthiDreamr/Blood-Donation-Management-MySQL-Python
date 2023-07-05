@@ -19,8 +19,17 @@ def admin_table_display():
     table_frame = tk.Frame(canvas)
     table_frame.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
+    h1 = tk.Label(table_frame,text="Admin_name")
+    h1.grid(row=0,column=0)
+
+    h2 = tk.Label(table_frame,text="Admin_id")
+    h2.grid(row=0,column=1)
+
+    h3 = tk.Label(table_frame,text="Password")
+    h3.grid(row=0,column=2)
+
     # Add the table to the frame
-    i = 0
+    i = 1
     for trow in cursor:
         for j in range(len(trow)):
             e = tk.Label(table_frame, text=trow[j], width=10, fg='blue', borderwidth=2, relief='ridge', anchor="w")

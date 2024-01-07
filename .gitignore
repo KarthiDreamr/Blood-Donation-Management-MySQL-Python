@@ -1,3 +1,8 @@
 /.vscode
+/myenv
+
+# exclude all files in __pycache__ directories under the current directory and its subdirectories
+**/__pycache__/*
+
 
 Tkinder/tempCodeRunnerFile.py

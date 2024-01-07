@@ -5,7 +5,7 @@ from UI.form.login.admin_login import admin_login_display
 
 # Create the main window
 root = tk.Tk()
-root.iconbitmap("assets/blood-donation.ico")
+root.iconbitmap("./assets/blood-donation.ico")
 
 # Set the window title
 root.title("Welcome Page")

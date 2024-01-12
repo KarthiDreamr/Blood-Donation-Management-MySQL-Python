@@ -1,5 +1,7 @@
 /.vscode
 /myenv
+env/
+.env
 
 # exclude all files in __pycache__ directories under the current directory and its subdirectories
 **/__pycache__/*

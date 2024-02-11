@@ -55,37 +55,54 @@ To install and run the application, follow these steps:
 
 This project aims to streamline blood donation management in hospitals through a desktop application. The application's user interface was created using Python libraries such as Tkinter and mysql.connector, with MySQL serving as the backend for data storage. The system is scalable, robust, and resistant to SQL injections due to strict security guidelines. The application's functionality is modular, making it easy to read and track state changes.
 
-## Screenshots
+## Screenshots:
 
-### WELCOME PAGE:  
-![image](https://github.com/KarthiDreamr/Blood-Donation-Management-MySQL-Python/assets/84800257/5e92ac12-cf5b-4bb0-b1b7-e5149ad08ca1)
+### WELCOME PAGE
+
+![welcome_page](screenshots/welcome_page.jpg)
 
 ### DONOR FORM PAGE
-![image](https://github.com/KarthiDreamr/Blood-Donation-Management-MySQL-Python/assets/84800257/8b1f8222-8a3e-41fd-aab1-2e05a22df6c3)
+
+![donor_form_page](screenshots/donor/donor_form_page.png)
+
+### DONOR LOGIN PAGE
+
+![donor_login_page](screenshots/donor/donor_login_page.png)
 
 ### DONOR TABLE VIEW
-![image](https://github.com/KarthiDreamr/Blood-Donation-Management-MySQL-Python/assets/84800257/2d6ec0a8-1b0c-4c6f-8fa2-dbbf58300fe8)
 
-### DONOR TABLE VIEW
-![image](https://github.com/KarthiDreamr/Blood-Donation-Management-MySQL-Python/assets/84800257/3e5a976e-2bc5-455d-b9ae-d2fc4fb752ec)
+![donor_table_view](screenshots/donor/donor_table_view.png)
 
 ### HOSPITAL FORM PAGE
-![image](https://github.com/KarthiDreamr/Blood-Donation-Management-MySQL-Python/assets/84800257/87c927a9-51e1-4a27-aca5-b39194364b16)
+
+![hospital_form_page](screenshots/hospital/hospital_form_page.png)
 
 ### HOSPITAL LOGIN PAGE
-![image](https://github.com/KarthiDreamr/Blood-Donation-Management-MySQL-Python/assets/84800257/8d6d8435-4494-4848-b132-bef375b0c5f5)
+
+![hospital_login_page](screenshots/hospital/hospital_login_page.png)
 
 ### HOSPITAL TABLE VIEW
-![image](https://github.com/KarthiDreamr/Blood-Donation-Management-MySQL-Python/assets/84800257/2551d967-1d5e-4af8-8b64-e6b28a76f32d)
+
+![hospital_table_view](screenshots/hospital/hospital_table_view.png)
 
 ### ADMIN DASHBOARD
-![image](https://github.com/KarthiDreamr/Blood-Donation-Management-MySQL-Python/assets/84800257/6c51ec24-5a9f-424d-b5b5-9fe457c4f910)
 
-### ADMIN LOGIN PAGE                       
-![image](https://github.com/KarthiDreamr/Blood-Donation-Management-MySQL-Python/assets/84800257/17fd117b-3812-43da-a92d-9d218f48eb46)
+![admin_dashboard](screenshots/admin/admin_dashboard.png)
+
+### ADMIN LOGIN PAGE
+
+![admin_login_page](screenshots/admin/admin_login_page.png)
 
 ### ADMIN TABLE VIEW
-![image](https://github.com/KarthiDreamr/Blood-Donation-Management-MySQL-Python/assets/84800257/8fb5c164-1929-4923-b151-37982eecae22)
+
+![admin_table_view](screenshots/admin/admin_table_view.png)
+
+
+### DATABASE QUERIES:
+
+![database_query](screenshots/database/database_query.png)
+
+![database_query_2](screenshots/database/database_query_2.png)
 
 
 ## References

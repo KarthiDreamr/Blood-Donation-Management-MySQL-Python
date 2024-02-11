@@ -57,52 +57,54 @@ This project aims to streamline blood donation management in hospitals through a
 
 ## Screenshots:
 
+<div align="center">
+
 ### WELCOME PAGE
 
-![welcome_page](screenshots/welcome_page.jpg)
+<img src="screenshots/welcome_page.jpg" width="40%"/>
 
 ### DONOR FORM PAGE
 
-![donor_form_page](screenshots/donor/donor_form_page.png)
+<img src="screenshots/donor/donor_form_page.png" width="40%"/>
 
 ### DONOR LOGIN PAGE
 
-![donor_login_page](screenshots/donor/donor_login_page.png)
+<img src="screenshots/donor/donor_login_page.png" width="40%"/>
 
 ### DONOR TABLE VIEW
 
-![donor_table_view](screenshots/donor/donor_table_view.png)
+<img src="screenshots/donor/donor_table_view.png" width="40%"/>
 
 ### HOSPITAL FORM PAGE
 
-![hospital_form_page](screenshots/hospital/hospital_form_page.png)
+<img src="screenshots/hospital/hospital_form_page.png" width="40%"/>
 
 ### HOSPITAL LOGIN PAGE
 
-![hospital_login_page](screenshots/hospital/hospital_login_page.png)
+<img src="screenshots/hospital/hospital_login_page.png" width="40%"/>
 
 ### HOSPITAL TABLE VIEW
 
-![hospital_table_view](screenshots/hospital/hospital_table_view.png)
+<img src="screenshots/hospital/hospital_table_view.png" width="40%"/>
 
 ### ADMIN DASHBOARD
 
-![admin_dashboard](screenshots/admin/admin_dashboard.png)
+<img src="screenshots/admin/admin_dashboard.png" width="40%"/>
 
 ### ADMIN LOGIN PAGE
 
-![admin_login_page](screenshots/admin/admin_login_page.png)
+<img src="screenshots/admin/admin_login_page.png" width="40%"/>
 
 ### ADMIN TABLE VIEW
 
-![admin_table_view](screenshots/admin/admin_table_view.png)
+<img src="screenshots/admin/admin_table_view.png" width="40%"/>
 
 
-### DATABASE QUERIES:
+### DATABASE QUERY:
 
-![database_query](screenshots/database/database_query.png)
+<img src="screenshots/database/database_query_2.png" width="40%"/>
 
-![database_query_2](screenshots/database/database_query_2.png)
+</div>
 
 
 ## References
